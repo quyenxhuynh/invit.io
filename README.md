@@ -13,6 +13,7 @@ A website to create invitations for you and your friends
 - Django
 - Bootstrap 4
 - Javascript (jQuery)
+- FontAwesome
 
 ### Contributors 
 - [Quyen Huynh](http://github.com/quyenxhuynh/)

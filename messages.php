@@ -11,7 +11,17 @@
   <body>
     <?php include('navbar.html') ?>
 
-    <!-- INCLUDE CONTENT HERE -->
+    <div class="border">
+      <div class="sidebar">
+        <div class="msg-name">Name</div>
+        <div class="msg-preview">Message Preview</div>
+      </div>
+
+      <div class="current-msg">
+        <h5>hi</h5>
+        <p>hsdkf</p>
+      </div>
+    </div>
 
     <?php include('js.html') ?>
   </body>

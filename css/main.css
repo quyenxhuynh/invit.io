@@ -161,3 +161,52 @@ div {
         min-width: none;
     }
 }
+
+.rcorners2 {
+    border-radius: 25px;
+    border: 2px solid;
+    padding: 20px; 
+    width: 49%;
+    height: 113px;
+    display:inline-block;  
+    line-height: 9px;
+  }
+
+.messages {
+    border-radius: 25px;
+    border: 2px solid;
+    padding: 20px; 
+    width: 30%;
+    display:inline-block;  
+    line-height: 9px;
+}
+
+  .box {
+    border: 2px solid;
+    padding: 20px; 
+    width: 104%;
+    height: 113px;
+    display:inline-block;  
+    line-height: 9px;
+  }
+  .box2 {
+    border: 2px solid;
+    padding: 20px; 
+    width: 100%;
+    height: 113px;
+    display:inline-block;  
+    line-height: 9px;
+  }
+
+  .bio {
+    border-radius: 25px;
+    border: 2px solid;
+    padding: 20px; 
+    width:100%;
+    height: 587px;
+    display:inline-block;  
+  }
+
+div {
+    vertical-align: top
+}

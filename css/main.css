@@ -69,15 +69,11 @@ a:hover {
     display: block;
 }
 
-
-
-.header {
+.show-hide {
     position:absolute;
     right:0;
     top:0
 }
-
-
 
 @media only screen and (max-width: 800px) {
     .nav-split, .dropdown-menu, #nav {

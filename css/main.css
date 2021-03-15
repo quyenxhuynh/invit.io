@@ -1,5 +1,9 @@
-h1,h2,h3,h4,h5,h6 {
+h1,h2{
     color: #6296e9;
+}
+
+h3,h4,h5,h6 {
+    color: black;
 }
 
 .nav-split {
@@ -71,6 +75,11 @@ a:hover {
     min-width: fit-content;
 }
 
+
+.center-align {
+    text-align: center;
+}
+
 .rcorners2 {
     border-radius: 25px;
     border: 2px solid;
@@ -119,5 +128,3 @@ a:hover {
 div {
     vertical-align: top
 }
-
-

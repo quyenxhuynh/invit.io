@@ -1,0 +1,21 @@
+.border {
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 20px 50px ;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.sidebar {
+    margin: 15px;
+}
+
+.current-msg {
+    margin: 15px;
+}
+
+.msg-name {
+    font-weight: bolder;
+}
+

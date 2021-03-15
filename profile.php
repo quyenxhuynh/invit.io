@@ -4,65 +4,98 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
+    <?php include("styles.html") ?>
+    <link rel="stylesheet" href="css/profile.css">
 
     <title>invit.io</title>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light nav-split shadow-sm p-3 mb-5 bg-white rounded">
-      <div>
-        <a class="navbar-brand" href="#">
-          <i class="far fa-envelope"></i> invit.io
-        </a>
+    <?php include('navbar.html') ?>
+
+    <!-- <div class="main">
+      <div class="header">
+        <img class="profile-pic-lg" src="media/profile-picture.jpg" alt=""> <h2>John Doe</h2>
       </div>
 
-      <div>
-        <a class="nav-items" href="index.html">Home</a>
-        <a class="nav-items" href="messages.html">Messages</a>
-        <a class="nav-items" href="events.html">All Events</a>
-      </div>
+      <div class="content">
+        <div class="left">
+          <div class="invitations">
+            <h4>Invitations</h4>
 
-      <div class="grid-end">
-        <a class="btn-blue-muted m-2" href="new-event.html">+ New Event</a>
-
-        <div class="btn-group max-width-4">
-          <img src="media/profile-picture.jpg" class="profile-pic dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">
-          <div class="dropdown-menu dropdown-menu-right right-align min-width-content" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="profile.html">Profile</a>
-            <a class="dropdown-item" href="settings.html">Settings</a>
-            <a class="dropdown-item" href="logout.html">Log Out</a>
-          </div>
-        </div>
-      </div>
-
-    </nav>
-
-
-    <img style="display:inline-block;" src="media/profile-picture.jpg" class="profile-pic2" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">
-    <h1 style="display:inline-block; padding: 20px;">John Doe</h1>
-    <br></br>
-    
-    
-
-        <!-- <div class="row">
-          <div class="col-lg">
-            <div>
-                <div class="rcorners2"></div>
-                <div class="rcorners2"></div>
-                <br></br>
-                <div class="rcorners2"></div>
-                <div class="rcorners2"></div>
+            <div class="event-list">
+              <div class="row">
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-sm">
-            <div class="bio"></div>
-          </div>
-        </div> -->
 
-        <div class="row">
+          <hr>
+
+          <div class="user-events">
+            <h4>Events Organized</h4>
+
+            <div class="event-list">
+              
+                <div class="event rounded-outline">
+                  <div class="row">
+                    <div class="event-title">Event Title</div>
+                    <div class="button-group">
+                      <button class="w-4rem">Yes</button>
+                      <button class="w-4rem">No</button>
+                      <button class="w-4rem">Maybe</button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button class="w-7rem">Message Host</button>
+                  </div>
+                  
+                </div>
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="right">
+          <h5>About Me</h5>
+            <div class="bio rounded-outline">
+            
+              <p>Event Description</p>
+            </div>
+        </div>
+      </div>
+    </div> -->
+      <div class="row">
             <div class="col-9">
                 <div>
+                
                     <h2 style="color:black;" >Invitations</h2>
                     <div class="rcorners2">
                         <div>
@@ -73,11 +106,14 @@
                         </div>
                         <div>
                             <p style="display:inline-block; font-size: 13px;">Even Description</p>
-                            <!-- <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button> -->
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
                         </div>
                         <div>
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                          <i id="heart1" class="far fa-share-square"></i>
+                          <i id="heart2" class="far fa-heart" onclick="toggleSave()"></i>
+                          
+                          <span onclick="toggleSave()"><i class="far fa-heart"></i></span>
+                          
                         </div>
                     </div>
                     <div class="rcorners2">
@@ -86,8 +122,8 @@
                             <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Attending</button>
                         </div>
                         <div>
-                            <p style="display:inline-block; font-size: 13px; ">Even Description</p>
-                            <!-- <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button> -->
+                            <p style="display:inline-block; font-size: 13px;">Even Description</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
                         </div>
                         <div>
                             <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
@@ -101,7 +137,7 @@
                         </div>
                         <div>
                             <p style="display:inline-block; font-size: 13px;">Event Description</p>
-                            <!-- <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button> -->
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
                         </div>
                         <div>
                             <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
@@ -115,7 +151,7 @@
                         </div>
                         <div>
                             <p style="display:inline-block; font-size: 13px;">Event Description</p>
-                            <!-- <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button> -->
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
                         </div>
                         <div>
                             <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
@@ -186,22 +222,9 @@
                 </div>
             </div>
           </div>
-    
+    </div>
 
-    <!-- <div class="container">
-        <div class="row"></div>
-          <div class="rcorners2">Column</div>
-          <div class="rcorners2">Column</div>
-          <div class="w-50"></div>
-          <div class="rcorners2">Column</div>
-          <div class="rcorners2">Column</div>
-        </div>
-      </div> -->
-    
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/3b408a1796.js" crossorigin="anonymous"></script>
+    <?php include('js.html') ?>
+    <script src=></script>
   </body>
 </html>

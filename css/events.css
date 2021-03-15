@@ -1,0 +1,42 @@
+.event {
+    border: solid 1px black;
+    border-radius: 25px;
+    min-height: 10rem;
+    padding: 15px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 15px;
+    margin: 0 15px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+.rounded-outline {
+    border-radius: 15px;
+    border: 1px solid black;
+    margin: 15px;
+    padding: 25px;
+}
+
+.row {
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px;
+}
+
+@media only screen and (max-width:900px) {
+    .content {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}

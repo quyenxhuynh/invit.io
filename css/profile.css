@@ -1,0 +1,173 @@
+/* .container {
+    margin: 20px 50px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.main {
+    margin: 20px 50px ;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+.profile-pic-lg {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 15px;
+}
+
+.rounded-outline {
+    border-radius: 15px;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 15px;
+}
+
+.event-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-right: 5em;
+}
+
+.event {
+}
+
+.bio {
+   min-height: 60vh;
+}
+
+p {
+    font-size: 0.8rem;
+}
+
+.button-group {
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 15px;
+    font-size: x-small;
+    background-color: white;
+    margin: 2px;
+}
+
+.w-4rem {
+    width: 4rem;
+}
+
+.w-7rem {
+    width: 7rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-start;
+    padding: 0 15px;
+} */
+
+.profile-pic2 {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-pic3 {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.min-width-content {
+    min-width: fit-content;
+}
+
+.rcorners2 {
+    border-radius: 25px;
+    border: 2px solid;
+    padding: 20px; 
+    width: 49%;
+    height: 113px;
+    display:inline-block;  
+    line-height: 9px;
+  }
+
+.messages {
+    border-radius: 25px;
+    border: 2px solid;
+    padding: 20px; 
+    width: 30%;
+    display:inline-block;  
+    line-height: 9px;
+}
+
+  .box {
+    border: 2px solid;
+    padding: 20px; 
+    width: 104%;
+    height: 113px;
+    display:inline-block;  
+    line-height: 9px;
+  }
+  .box2 {
+    border: 2px solid;
+    padding: 20px; 
+    width: 100%;
+    height: 113px;
+    display:inline-block;  
+    line-height: 9px;
+  }
+
+  .bio {
+    border-radius: 25px;
+    border: 2px solid;
+    padding: 20px; 
+    width:100%;
+    height: 587px;
+    display:inline-block;  
+  }
+
+div {
+    vertical-align: top
+}
+
+i {
+    float: right; 
+    width: 24px; 
+    height: 24px; 
+    margin-top:8px;
+    margin-right:5px;
+}
+
+.heart {
+    display: block;
+}
+
+.heart.hide {
+    display: none;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}

@@ -60,3 +60,8 @@ a:hover {
 .min-width-content {
     min-width: fit-content;
 }
+
+
+.center-align {
+    text-align: center;
+}

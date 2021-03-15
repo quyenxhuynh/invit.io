@@ -147,3 +147,27 @@ button {
 div {
     vertical-align: top
 }
+
+i {
+    float: right; 
+    width: 24px; 
+    height: 24px; 
+    margin-top:8px;
+    margin-right:5px;
+}
+
+.heart {
+    display: block;
+}
+
+.heart.hide {
+    display: none;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}

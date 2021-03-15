@@ -10,8 +10,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
-    margin-bottom: 15px;
-    margin: 0 15px;
+    margin: 15px;
 }
 
 .content {
@@ -23,7 +22,7 @@
     border-radius: 15px;
     border: 1px solid black;
     margin: 15px;
-    padding: 25px;
+    /* padding: 25px; */
 }
 
 .row {
@@ -34,7 +33,7 @@
     padding: 2px;
 }
 
-@media only screen and (max-width:900px) {
+@media only screen and (max-width:000px) {
     .content {
         display: flex;
         flex-direction: column-reverse;

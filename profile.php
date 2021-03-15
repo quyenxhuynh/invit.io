@@ -4,15 +4,150 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
+    <?php include("styles.html") ?>
+    <link rel="stylesheet" href="css/profile.css">
 
     <title>invit.io</title>
   </head>
   <body>
     <?php include('navbar.html') ?>
 
-    <!-- INCLUDE CONTENT HERE -->
+    <div class="container">
+      <div class="header">
+        <img class="profile-pic-lg" src="media/profile-picture.jpg" alt=""> <h2>John Doe</h2>
+      </div>
+
+      <!-- <div class="invitations">
+
+      </div> -->
+
+      <div class="row">
+            <div class="col-9">
+                <div>
+                    <h2 style="color:black;" >Invitations</h2>
+                    <div class="rcorners2">
+                        <div>
+                            <p style="display:inline-block; font-weight: bold;">Event</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Maybe</button>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">No</button>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Yes</button>
+                        </div>
+                        <div>
+                            <p style="display:inline-block; font-size: 13px;">Even Description</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
+                        </div>
+                        <div>
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                        </div>
+                    </div>
+                    <div class="rcorners2">
+                        <div>
+                            <p style="display:inline-block; font-weight: bold;">Event</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Attending</button>
+                        </div>
+                        <div>
+                            <p style="display:inline-block; font-size: 13px;">Even Description</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
+                        </div>
+                        <div>
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                        </div>
+                    </div>
+                    <div class="rcorners2">
+                        <div>
+                            <p style="display:inline-block; font-weight: bold;">Event</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Attending</button>
+                        </div>
+                        <div>
+                            <p style="display:inline-block; font-size: 13px;">Event Description</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
+                        </div>
+                        <div>
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                        </div>
+                    </div>
+                    <div class="rcorners2">
+                        <div>
+                            <p style="display:inline-block; font-weight: bold;">Event</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Denied</button>
+                        </div>
+                        <div>
+                            <p style="display:inline-block; font-size: 13px;">Event Description</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
+                        </div>
+                        <div>
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                        </div>
+                    </div>
+
+                    <br></br>
+                    <h2 style="color:black;" >Events Organized</h2>
+                    <div class="rcorners2">
+                        <div>
+                            <p style="display:inline-block; font-weight: bold;">Event 1</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Invite</button>
+                        </div>
+                        <div>
+                            <br></br>
+                        </div>
+                        <div>
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                        </div>
+                    </div>
+                    <div class="rcorners2">
+                        <div>
+                            <p style="display:inline-block; font-weight: bold;">Event 2</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Invite</button>
+                        </div>
+                        <div>
+                            <br></br>
+                        </div>
+                        <div>
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                        </div>
+                    </div>
+                    <div class="rcorners2">
+                        <div>
+                            <p style="display:inline-block; font-weight: bold;">Event 2</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Invite</button>
+                        </div>
+                        <div>
+                            <br></br>
+                        </div>
+                        <div>
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                        </div>
+                    </div>
+                    <div class="rcorners2">
+                        <div>
+                            <p style="display:inline-block; font-weight: bold;">Event 2</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Invite</button>
+                        </div>
+                        <div>
+                            <br></br>
+                        </div>
+                        <div> 
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
+                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <h2 style="color:black;" >About me</h2>
+                <div class="bio">
+                    <p>Bio</p>
+                </div>
+            </div>
+          </div>
+    </div>
 
     <?php include('js.html') ?>
   </body>

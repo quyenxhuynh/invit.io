@@ -1,0 +1,17 @@
+.container {
+    margin: 20px 50px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile-pic-lg {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 15px;
+}

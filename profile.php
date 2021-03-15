@@ -109,10 +109,10 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="fas fa-share"></i>
+                            <i class="event-icon fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
-                            <i class="far fa-heart"></i>
+                            <i class="event-icon far fa-heart"></i>
                           </span>
                         </div>
                     </div>
@@ -127,10 +127,10 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="fas fa-share"></i>
+                            <i class="event-icon fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
-                            <i class="far fa-heart"></i>
+                            <i class="event-icon far fa-heart"></i>
                           </span>
                         </div>
                     </div>
@@ -145,10 +145,10 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="fas fa-share"></i>
+                            <i class="event-icon fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
-                            <i class="far fa-heart"></i>
+                            <i class="event-icon far fa-heart"></i>
                           </span>
                         </div>
                     </div>
@@ -163,10 +163,10 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="fas fa-share"></i>
+                            <i class="event-icon fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
-                            <i class="far fa-heart"></i>
+                            <i class="event-icon far fa-heart"></i>
                           </span>
                         </div>
                     </div>
@@ -183,10 +183,10 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="fas fa-share"></i>
+                            <i class="event-icon fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
-                            <i class="far fa-heart"></i>
+                            <i class="event-icon far fa-heart"></i>
                           </span>
                         </div>
                     </div>
@@ -200,10 +200,10 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="fas fa-share"></i>
+                            <i class="event-icon fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
-                            <i class="far fa-heart"></i>
+                            <i class="event-icon far fa-heart"></i>
                           </span>
                         </div>
                     </div>
@@ -217,10 +217,10 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="fas fa-share"></i>
+                            <i class="event-icon fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
-                            <i class="far fa-heart"></i>
+                            <i class="event-icon far fa-heart"></i>
                           </span>
                         </div>
                     </div>
@@ -234,10 +234,10 @@
                         </div>
                         <div> 
                           <span class="share-event">
-                            <i class="fas fa-share"></i>
+                            <i class="event-icon fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
-                            <i class="far fa-heart"></i>
+                            <i class="event-icon far fa-heart"></i>
                           </span>
                         </div>
                     </div>

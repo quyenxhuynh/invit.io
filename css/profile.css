@@ -148,7 +148,7 @@ div {
     vertical-align: top
 }
 
-i {
+.event-icon {
     float: right; 
     width: 24px; 
     height: 24px; 

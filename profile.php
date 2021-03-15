@@ -12,15 +12,86 @@
   <body>
     <?php include('navbar.html') ?>
 
-    <div class="container">
+    <!-- <div class="main">
       <div class="header">
         <img class="profile-pic-lg" src="media/profile-picture.jpg" alt=""> <h2>John Doe</h2>
       </div>
 
-      <!-- <div class="invitations">
+      <div class="content">
+        <div class="left">
+          <div class="invitations">
+            <h4>Invitations</h4>
 
-      </div> -->
+            <div class="event-list">
+              <div class="row">
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <hr>
+
+          <div class="user-events">
+            <h4>Events Organized</h4>
+
+            <div class="event-list">
+              
+                <div class="event rounded-outline">
+                  <div class="row">
+                    <div class="event-title">Event Title</div>
+                    <div class="button-group">
+                      <button class="w-4rem">Yes</button>
+                      <button class="w-4rem">No</button>
+                      <button class="w-4rem">Maybe</button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <button class="w-7rem">Message Host</button>
+                  </div>
+                  
+                </div>
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+                <div class="event rounded-outline">
+                  <h6>Event Title</h6>
+                  <p>Event Description</p>
+                </div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="right">
+          <h5>About Me</h5>
+            <div class="bio rounded-outline">
+            
+              <p>Event Description</p>
+            </div>
+        </div>
+      </div>
+    </div> -->
       <div class="row">
             <div class="col-9">
                 <div>

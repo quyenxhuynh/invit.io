@@ -8,7 +8,7 @@ show.onclick = function() {
     nav.style.display = "flex";
 }
 
-hide.onclick = function () {
+hide.onclick = () => {
     show.style.display = "block";
     hide.style.display = "none";
     nav.style.display = "none";

@@ -29,7 +29,7 @@
       </div>
 
       <div class="events-list-lg">
-        <div class="event">
+        <div class="event rounded-outline">
           <h5><a href="event.php">Event Name</a></h5>
           <!-- <a href="event.php"><h5>Event Name</h5></a> -->
           <p>Event Description</p>

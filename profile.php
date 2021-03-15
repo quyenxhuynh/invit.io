@@ -181,13 +181,14 @@
                         <div>
                             <br></br>
                         </div>
+                    </div>
+                    <div class="rcorners2">
                         <div>
-                          <span class="share-event">
-                            <i class="event-icon fas fa-share"></i>
-                          </span>
-                          <span class="heart-toggle">
-                            <i class="event-icon far fa-heart"></i>
-                          </span>
+                            <p style="display:inline-block; font-weight: bold;">Event 2</p>
+                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Invite</button>
+                        </div>
+                        <div>
+                            <br></br>
                         </div>
                     </div>
                     <div class="rcorners2">
@@ -198,14 +199,6 @@
                         <div>
                             <br></br>
                         </div>
-                        <div>
-                          <span class="share-event">
-                            <i class="event-icon fas fa-share"></i>
-                          </span>
-                          <span class="heart-toggle">
-                            <i class="event-icon far fa-heart"></i>
-                          </span>
-                        </div>
                     </div>
                     <div class="rcorners2">
                         <div>
@@ -214,31 +207,6 @@
                         </div>
                         <div>
                             <br></br>
-                        </div>
-                        <div>
-                          <span class="share-event">
-                            <i class="event-icon fas fa-share"></i>
-                          </span>
-                          <span class="heart-toggle">
-                            <i class="event-icon far fa-heart"></i>
-                          </span>
-                        </div>
-                    </div>
-                    <div class="rcorners2">
-                        <div>
-                            <p style="display:inline-block; font-weight: bold;">Event 2</p>
-                            <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Invite</button>
-                        </div>
-                        <div>
-                            <br></br>
-                        </div>
-                        <div> 
-                          <span class="share-event">
-                            <i class="event-icon fas fa-share"></i>
-                          </span>
-                          <span class="heart-toggle">
-                            <i class="event-icon far fa-heart"></i>
-                          </span>
                         </div>
                     </div>
                 </div>

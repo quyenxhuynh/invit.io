@@ -95,7 +95,6 @@
       <div class="row">
             <div class="col-9">
                 <div>
-                
                     <h2 style="color:black;" >Invitations</h2>
                     <div class="rcorners2">
                         <div>
@@ -109,11 +108,12 @@
                             <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
                         </div>
                         <div>
-                          <i id="heart1" class="far fa-share-square"></i>
-                          <i id="heart2" class="far fa-heart" onclick="toggleSave()"></i>
-                          
-                          <span onclick="toggleSave()"><i class="far fa-heart"></i></span>
-                          
+                          <span class="share-event">
+                            <i class="far fa-share-square"></i>
+                          </span>
+                          <span class="heart-toggle">
+                            <i class="far fa-heart"></i>
+                          </span>
                         </div>
                     </div>
                     <div class="rcorners2">
@@ -126,8 +126,12 @@
                             <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
                         </div>
                         <div>
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                          <span class="share-event">
+                            <i class="far fa-share-square"></i>
+                          </span>
+                          <span class="heart-toggle">
+                            <i class="far fa-heart"></i>
+                          </span>
                         </div>
                     </div>
                     <div class="rcorners2">
@@ -140,8 +144,12 @@
                             <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
                         </div>
                         <div>
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                          <span class="share-event">
+                            <i class="far fa-share-square"></i>
+                          </span>
+                          <span class="heart-toggle">
+                            <i class="far fa-heart"></i>
+                          </span>
                         </div>
                     </div>
                     <div class="rcorners2">
@@ -154,8 +162,12 @@
                             <button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
                         </div>
                         <div>
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                          <span class="share-event">
+                            <i class="far fa-share-square"></i>
+                          </span>
+                          <span class="heart-toggle">
+                            <i class="far fa-heart"></i>
+                          </span>
                         </div>
                     </div>
 
@@ -170,8 +182,12 @@
                             <br></br>
                         </div>
                         <div>
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                          <span class="share-event">
+                            <i class="far fa-share-square"></i>
+                          </span>
+                          <span class="heart-toggle">
+                            <i class="far fa-heart"></i>
+                          </span>
                         </div>
                     </div>
                     <div class="rcorners2">
@@ -183,8 +199,12 @@
                             <br></br>
                         </div>
                         <div>
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                          <span class="share-event">
+                            <i class="far fa-share-square"></i>
+                          </span>
+                          <span class="heart-toggle">
+                            <i class="far fa-heart"></i>
+                          </span>
                         </div>
                     </div>
                     <div class="rcorners2">
@@ -196,8 +216,12 @@
                             <br></br>
                         </div>
                         <div>
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                          <span class="share-event">
+                            <i class="far fa-share-square"></i>
+                          </span>
+                          <span class="heart-toggle">
+                            <i class="far fa-heart"></i>
+                          </span>
                         </div>
                     </div>
                     <div class="rcorners2">
@@ -209,8 +233,12 @@
                             <br></br>
                         </div>
                         <div> 
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/upload.png" alt="">
-                            <img style="float: right; width: 24px; height: 24px; margin-top:8px; margin-right:5px;" src="media/heart.png" alt="">
+                          <span class="share-event">
+                            <i class="far fa-share-square"></i>
+                          </span>
+                          <span class="heart-toggle">
+                            <i class="far fa-heart"></i>
+                          </span>
                         </div>
                     </div>
                 </div>
@@ -225,6 +253,6 @@
     </div>
 
     <?php include('js.html') ?>
-    <script src=></script>
+    <script src="js/profile.js"></script>
   </body>
 </html>

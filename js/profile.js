@@ -9,7 +9,7 @@ $('.share-event').click(
         // var copyText = "Event link placeholder";
         // copyText.select();
         // copyText.setSelectionRange(0, 99999); 
-        // document.execCommand("copy");
+        document.execCommand("copy");
         alert("Copied the text: Event link placeholder" );
     }
 );

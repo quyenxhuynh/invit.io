@@ -16,11 +16,15 @@
       <div class="header">
         <h2>Event Name</h2>
         <div>
-          <img id="heart" src="https://i.imgur.com/kDDHION.png" alt="" class="mx-1" style="width: 25px">
-          <img src="https://i.imgur.com/My5FbZN.png" alt="" class="mx-1" style="width: 25px">
+          <span class="heart-toggle mx-1">
+            <i class="event-icon far fa-heart fa-2x"></i>
+          </span>
+          <span class="share-event mx-1">
+            <i class="event-icon fas fa-share fa-2x"></i>
+          </span>
+          
         </div>
         
-        <!-- <input type="image" onclick='changeFav()' src="https://i.imgur.com/pw5U3Vy.png" style="width: 25px;margin-right: 7px; filter:invert(100%)"> -->
       </div>
 
       <div class="content">

@@ -1,8 +1,15 @@
-heart.onclick = function() {
-    if (document.getElementById("heart").src == "https://i.imgur.com/kDDHION.png") {
-        document.getElementById("heart").src = "https://i.imgur.com/pw5U3Vy.png";
+$('.heart-toggle').click(
+    function() {
+        $(this).find('i').toggleClass('fas far');
     }
-    else {
-        document.getElementById("heart").src = "https://i.imgur.com/kDDHION.png";
+);
+
+$('.share-event').click(
+    function() {
+        // var copyText = "Event link placeholder";
+        // copyText.select();
+        // copyText.setSelectionRange(0, 99999); 
+        document.execCommand("copy");
+        alert("Copied the text: Event link placeholder" );
     }
-}
+);

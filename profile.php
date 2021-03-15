@@ -109,7 +109,7 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="far fa-share-square"></i>
+                            <i class="fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
                             <i class="far fa-heart"></i>
@@ -127,7 +127,7 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="far fa-share-square"></i>
+                            <i class="fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
                             <i class="far fa-heart"></i>
@@ -145,7 +145,7 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="far fa-share-square"></i>
+                            <i class="fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
                             <i class="far fa-heart"></i>
@@ -163,7 +163,7 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="far fa-share-square"></i>
+                            <i class="fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
                             <i class="far fa-heart"></i>
@@ -183,7 +183,7 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="far fa-share-square"></i>
+                            <i class="fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
                             <i class="far fa-heart"></i>
@@ -200,7 +200,7 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="far fa-share-square"></i>
+                            <i class="fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
                             <i class="far fa-heart"></i>
@@ -217,7 +217,7 @@
                         </div>
                         <div>
                           <span class="share-event">
-                            <i class="far fa-share-square"></i>
+                            <i class="fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
                             <i class="far fa-heart"></i>
@@ -234,7 +234,7 @@
                         </div>
                         <div> 
                           <span class="share-event">
-                            <i class="far fa-share-square"></i>
+                            <i class="fas fa-share"></i>
                           </span>
                           <span class="heart-toggle">
                             <i class="far fa-heart"></i>

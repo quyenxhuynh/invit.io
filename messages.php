@@ -27,31 +27,31 @@
     <div class="row">
         <div class="col">
             <div class="col">
-                <div class="box">
+                <div class="box" onClick="changeColor(this)">
                     <p style="">Jane Doe</p>
                     <p style="font-size: 13px;">Preview Message</p>
                 </div>
             </div>
             <div class="col">
-                <div class="box">
+                <div class="box" onClick="changeColor(this)">
                     <p style="">John Doe</p>
                     <p style="font-size: 13px;">Preview Message</p>
                 </div>
             </div>
             <div class="col">
-                <div class="box">
+                <div class="box" onClick="changeColor(this)">
                     <p style="">Bob Doe</p>
                     <p style="font-size: 13px;">Preview Message</p>
                 </div>
             </div>
             <div class="col">
-                <div class="box">
+                <div class="box" onClick="changeColor(this)">
                     <p style="">Alex Doe</p>
                     <p style="font-size: 13px;">Preview Message</p>
                 </div>
             </div>
             <div class="col">
-                <div class="box">
+                <div class="box" onClick="changeColor(this)">
                     <p style="">Quin Doe</p>
                     <p style="font-size: 13px;">Preview Message</p>
                 </div>
@@ -77,5 +77,25 @@
       </div>
 
     <?php include('js.html') ?>
+
+    <script>
+
+    //source: https://stackoverflow.com/questions/31896819/setting-background-color-of-div-on-click/31897055
+    var divItems = document.getElementsByClassName("box");
+
+    function changeColor(item) {
+        this.clear();
+        item.style.backgroundColor = 'gray';
+    }
+
+    function clear() {
+        for(var i=0; i < divItems.length; i++) {
+            var item = divItems[i];
+            item.style.backgroundColor = 'white';
+        }
+    }
+
+    
+    </script>
   </body>
 </html>

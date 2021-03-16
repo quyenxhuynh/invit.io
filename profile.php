@@ -14,6 +14,8 @@
 <body>
 	<?php include('navbar.html') ?>
 
+	<!-- Sets up the profile page with information about events and invitation -->
+
 	<div class="row">
 		<div class="col-9">
 			<div>

@@ -71,7 +71,14 @@
 		<?php include('js.html') ?>
 
 		<script>
-            //source: https://stackoverflow.com/questions/31896819/setting-background-color-of-div-on-click/31897055
+          // Source:
+           /* 
+           Title: setting-background-color-of-div-on-click
+           Author: Julia Shestakova
+           Date: 3/15
+           Code Version: Javascript
+           Avalability: https://stackoverflow.com/questions/31896819/setting-background-color-of-div-on-click/31897055
+           */
             
             // changes the background to gray when it is clicked
 

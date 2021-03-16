@@ -1,7 +1,7 @@
 <?php
-// sets up all the redirects to be used in GCP
 switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
-   case '/':                   
+   case '/':       
+	require 'base.php';          
       break; 
    case '/event.php':     
       require 'event.php';

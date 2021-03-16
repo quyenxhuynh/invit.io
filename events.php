@@ -15,6 +15,8 @@
     <div class="container">
       <div class="header">
         <h2>All Events</h2>
+
+        <!-- SORT OPTIONS -->
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
             <input type="radio" name="options" id="option1" autocomplete="off" checked> Name
@@ -28,6 +30,7 @@
         </div>
       </div>
 
+      <!-- ALL EVENTS -->
       <div class="events-list-lg">
         <div class="event rounded-outline">
           <h5><a href="event.php">Event Name</a></h5>

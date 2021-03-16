@@ -12,6 +12,7 @@
   <body>
     <?php include('navbar.html') ?>
 
+    <!-- HEADER -->
     <div class="container">
       <div class="header">
         <h2>Event Name</h2>
@@ -27,6 +28,7 @@
         
       </div>
 
+      <!-- CONTENT -->
       <div class="content">
         <div class="left rounded-outline">
           <div class="description">

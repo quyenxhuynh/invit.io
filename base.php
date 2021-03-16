@@ -1,3 +1,4 @@
+<!-- BASE TEMPLATE TO C/P TO NEW PAGES -->
 <!doctype html>
 <html lang="en">
   <head>

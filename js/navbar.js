@@ -4,7 +4,7 @@ var hide = document.getElementById("bye")
 var nav = document.getElementById("nav");
 
 // anonymous function
-show.onclick = function() {
+show.onclick = function () {
     show.style.display = "none";
     hide.style.display = "block";
     nav.style.display = "flex";
@@ -17,18 +17,16 @@ hide.onclick = () => {
     nav.style.display = "none";
 }
 
-function sizing () {
+function sizing() {
     if (window.innerWidth >= 900) { // desktop
         show.style.display = "none";
         hide.style.display = "none";
         nav.style.display = "block";
-    }
-    else if (window.innerWidth >= 600) {
+    } else if (window.innerWidth >= 600) {
         show.style.display = "block";
         hide.style.display = "none";
         nav.style.display = "none";
-    }
-    else {
+    } else {
         show.style.display = "block";
         hide.style.display = "none";
         nav.style.display = "none";

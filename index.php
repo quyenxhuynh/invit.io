@@ -1,9 +1,9 @@
 <?php
+// sets up all the redirects to be used in GCP
 switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
-   case '/':                   // URL (without file name) to a default screen
-      require 'base.php';
+   case '/':                   
       break; 
-   case '/event.php':     // if you plan to also allow a URL with the file name 
+   case '/event.php':     
       require 'event.php';
       break;             
    case '/events.php':

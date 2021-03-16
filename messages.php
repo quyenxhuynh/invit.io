@@ -12,7 +12,9 @@
 </head>
 
 <body>
-	<?php include('navbar.html') ?>
+    <?php include('navbar.html') ?>
+    
+    <!-- messages page that displays contacts and the current conversation -->
 
 	<div class="row">
 		<div class="col">
@@ -69,7 +71,10 @@
 		<?php include('js.html') ?>
 
 		<script>
-			//source: https://stackoverflow.com/questions/31896819/setting-background-color-of-div-on-click/31897055
+            //source: https://stackoverflow.com/questions/31896819/setting-background-color-of-div-on-click/31897055
+            
+            // changes the background to gray when it is clicked
+
 			var divItems = document.getElementsByClassName("box");
 
 			function changeColor(item) {

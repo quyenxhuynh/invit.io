@@ -11,7 +11,7 @@
 </head>
 
 <body>
-	<?php include('navbar.html') ?>
+  <?php include('navbar.html') ?>
 
 	<div class="container">
 		<h2>Create a New Event</h2>
@@ -64,17 +64,11 @@
 
 	<?php include('js.html') ?>
 	<script>
-		// check that name is less than 10 characters DONE
-		// check that location has a comma in it DONE
-		//check that date is correct
-		//check that the private and public has been selected
-		// time is already good
-
-
 		function checkRegistration() {
 
 			var number_error = 0;
 
+      // check that the name is filled out and less than 100 characters
 			var name = document.getElementById("name");
 
 			if (name.value.length > 100 || name.value.length == 0) {
@@ -89,6 +83,7 @@
 				document.getElementById("err_name").innerHTML = "";
 			}
 
+      // check that the location is entered in the "city, state" format
 			var loc = document.getElementById("loc");
 			var loc_split = loc.value.split(',')
 
@@ -105,6 +100,7 @@
 				document.getElementById("err_loc").innerHTML = "";
 			}
 
+      // Check that private or public is checked
 			var public = document.getElementById('public').checked
 			var private = document.getElementById('private').checked
 

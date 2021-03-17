@@ -137,6 +137,14 @@ div {
     top:0
 }
 
+.hide {
+    display: none;
+}
+
+/* .show {
+    display: block;
+} */
+
 @media only screen and (max-width: 1000px) {
     .nav-split, .dropdown-menu, #nav {
         display: flex;
@@ -156,8 +164,14 @@ div {
         display: none;
         min-width: none;
     }
+
+    .hide {
+        display: block;
+    }
 }
 
+
+/* 
 .rcorners2 {
     border-radius: 25px;
     border: 2px solid;
@@ -206,4 +220,4 @@ div {
 div {
     vertical-align: top
 }
-
+ */

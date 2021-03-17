@@ -22,6 +22,7 @@ function sizing() {
         show.style.display = "none";
         hide.style.display = "none";
         nav.style.display = "block";
+        
     } else {
         show.style.display = "block";
         hide.style.display = "none";

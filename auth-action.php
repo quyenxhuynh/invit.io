@@ -1,3 +1,6 @@
+<!-- TO DO: 
+Duplicate usernames -->
+
 <?php
     include_once("./config.php"); // To connect to the database
     $con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);

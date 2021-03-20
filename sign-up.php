@@ -29,19 +29,19 @@
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Username</label>
 				<div class="col-sm-10">
-					<input id="username" class="form-control" type="text" placeholder="johndoe">
+					<input id="username" name="username" class="form-control" type="text" placeholder="johndoe">
 				</div>
 			</div>
             <div class="form-group row">
 				<label class="col-sm-2 col-form-label">Password</label>
 				<div class="col-sm-10">
-					<input id="password" class="form-control" type="password" placeholder="********">
+					<input id="password" name="password" class="form-control" type="password" placeholder="********">
 				</div>
 			</div>
             <div class="form-group row">
 				<label class="col-sm-2 col-form-label">Confirm Password</label>
 				<div class="col-sm-10">
-					<input id="password2" class="form-control" type="password" placeholder="********">
+					<input id="password2" name="password2" class="form-control" type="password" placeholder="********">
 				</div>
 			</div>
             

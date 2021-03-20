@@ -44,7 +44,7 @@
 					<img class="profile-pic mx-3" src="media/profile-picture.jpg" alt="">
 					<h5><a href="profile.php">John Doe</a></h5>
 				</div>
-				<div class="row justify-content-center">
+				<div class="row">
 					Tuesday, March 23, 2021 <br>
 					2:00pm
 				</div>

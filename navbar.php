@@ -17,9 +17,21 @@
         <a class="nav-items" href="messages.php">Messages</a>
         <a class="nav-items" href="events.php">All Events</a>
         <hr class="hide">
-        <a class="nav-items hide" href="profile.php">Profile</a>
-        <a class="nav-items hide" href="settings.php">Settings</a>
-        <a class="nav-items hide" href="base.php">Log Out</a>
+        <?php
+
+        if (isset($_SESSION['logged-in'])) {
+            echo '
+            <a class="nav-items hide" href="profile.php">Profile</a>
+            <a class="nav-items hide" href="settings.php">Settings</a>
+            <a class="nav-items hide" href="sign-out.php">Sign Out</a>
+            ';
+        } else {
+            echo '
+            <a class="nav-items hide" href="sign-up.php">Register</a>
+            <a class="nav-items hide" href="sign-in.php">Sign In</a>
+            ';
+        }
+        ?>
     </div>
 
     <!-- PROFILE, SETTINGS, AND LOGOUT -->
@@ -35,7 +47,7 @@
                     aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="profile.php">Profile</a>
                     <a class="dropdown-item" href="settings.php">Settings</a>
-                    <a class="dropdown-item" href="sign-out.php">Log Out</a>
+                    <a class="dropdown-item" href="sign-out.php">Sign Out</a>
                 </div>
             </div>
             ';

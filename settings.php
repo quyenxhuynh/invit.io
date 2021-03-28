@@ -1,4 +1,5 @@
 <?php 
+session_start();
 if (!isset($_SESSION['logged-in'])) {
 	header('Location: sign-in.php');
 }
@@ -25,9 +26,23 @@ if (!isset($_SESSION['logged-in'])) {
         <p>
         <form>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Name</label>
+                <label class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
-                    <input id="name" class="form-control" type="text" placeholder="Current User" value="Current User">
+                    <input id="name" class="form-control" type="text" placeholder="Current First Name" value="">
+                    <span class="error_message" id="err_name"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input id="name" class="form-control" type="text" placeholder="Current Last Name" value="">
+                    <span class="error_message" id="err_name"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Username</label>
+                <div class="col-sm-10">
+                    <input id="name" class="form-control" type="text" placeholder="Current Username" value="Current User">
                     <span class="error_message" id="err_name"></span>
                 </div>
             </div>

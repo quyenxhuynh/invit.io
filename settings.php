@@ -1,3 +1,9 @@
+<?php 
+if (!isset($_SESSION['logged-in'])) {
+	header('Location: sign-in.php');
+}
+?>
+
 <!doctype html>
 <html lang="en">
 

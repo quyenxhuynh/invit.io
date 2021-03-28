@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 if (isset($_SESSION['logged-in'])) {
 	header('Location: base.php');
 }
@@ -39,8 +39,9 @@ if (isset($_POST['sign-up'])) {
 
 		$error = "";
 		$_SESSION['logged-in'] = $_POST['username'];
+		// echo $_SESSION['logged-in'];
 		header("Location: base.php");
-		echo '<div class="alert alert-success" role="alert">Account created successfully</div>';
+		// echo '<div class="alert alert-success" role="alert">Account created successfully</div>';
 	}
 	mysqli_close($con);
 	}

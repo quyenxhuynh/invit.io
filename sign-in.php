@@ -1,6 +1,6 @@
 <?php
 
-// session_start();
+session_start();
 if (isset($_SESSION['logged-in'])) {
 	header('Location: base.php');
 }
@@ -53,7 +53,7 @@ if (isset($_POST['sign-in'])) {
 
 	<div class="container">
 		<?php 
-		if (isset($error)) {
+		if (isset($error) && !empty($error)) {
 			echo '<div class="alert alert-danger" role="alert">' . 
 				$error . 
 				'</div>';

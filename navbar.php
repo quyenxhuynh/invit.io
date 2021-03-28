@@ -25,7 +25,6 @@
     <!-- PROFILE, SETTINGS, AND LOGOUT -->
     <div class="grid-end">
         <?php
-        session_start();
         if (isset($_SESSION['logged-in'])) {
             echo '
             <a id="new-event-btn" class="btn-blue-muted m-2" href="new-event.php">+ New Event</a>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 if (isset($_SESSION['logged-in'])) {
 	header('Location: base.php');
 }
@@ -59,7 +59,7 @@ if (isset($_POST['sign-up'])) {
 </head>
 
 <body>
-	<?php include('navbar.html'); ?>
+	<?php include('navbar.php'); ?>
 
 
 	<div class="container">

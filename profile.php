@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<?php include('navbar.html') ?>
+	<?php include('navbar.php') ?>
 
 	<!-- Sets up the profile page with information about events and invitation -->
 

@@ -32,7 +32,7 @@ a:hover {
 .btn-blue-muted {
     background-color: #71A7FF;
     color: white;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 10px 12px;
     border: 0;
 }
@@ -41,6 +41,21 @@ a:hover {
     background-color: #6296e9;
     color: white;
 }
+
+.btn-blue-muted-outline {
+    border: 1px solid #71A7FF;
+    background-color: white;
+    color: #6296e9;
+    border-radius: 5px;
+    padding: 10px 12px;
+}
+
+.btn-blue-muted-outline:hover {
+    background-color: #eff5ff;
+    /* color: white; */
+    border: 1px solid #71A7FF;
+}
+
 
 .profile-pic {
     height: 50px;

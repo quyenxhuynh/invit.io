@@ -18,7 +18,7 @@ if (!isset($_SESSION['logged-in'])) {
 </head>
 
 <body>
-  <?php include('navbar.html') ?>
+  <?php include('navbar.php') ?>
 
 	<div class="container">
 		<h2>Create a New Event</h2>

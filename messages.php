@@ -19,7 +19,7 @@ if (!isset($_SESSION['logged-in'])) {
 </head>
 
 <body>
-    <?php include('navbar.html') ?>
+    <?php include('navbar.php') ?>
     
     <!-- messages page that displays contacts and the current conversation -->
 

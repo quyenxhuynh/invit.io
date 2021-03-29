@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 
+<!-- BASE TEMPLATE TO C/P TO NEW PAGES -->
 <!doctype html>
 <html lang="en">
 
@@ -9,7 +10,6 @@
 	<meta name="author" content="quyen huynh, alex johnson">
 
 	<?php include("styles.html") ?>
-	<link rel="stylesheet" href="css/profile.css">
 
 	<title>invit.io</title>
 </head>
@@ -17,138 +17,57 @@
 <body>
 	<?php include('navbar.php') ?>
 
-	<!-- Sets up the profile page with information about events and invitation -->
+	<div class="container">
+		<?php
+		if (isset($_GET['username']) && !empty($_GET['username'])) {
+			$username = $_GET['username'];
+		}
+		else {
+			$username = $_SESSION['logged-in'];
+		}
 
-	<div class="row">
-		<div class="col-9">
-			<div>
-				<h2 style="color:black;">Invitations</h2>
-				<div class="rcorners2">
-					<div>
-						<p style="display:inline-block; font-weight: bold;">Event</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Maybe</button>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">No</button>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Yes</button>
-					</div>
-					<div>
-						<p style="display:inline-block; font-size: 13px;">Even Description</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
-					</div>
-					<div>
-						<span class="share-event">
-							<i class="event-icon fas fa-share"></i>
-						</span>
-						<span class="heart-toggle">
-							<i class="event-icon far fa-heart"></i>
-						</span>
-					</div>
-				</div>
-				<div class="rcorners2">
-					<div>
-						<p style="display:inline-block; font-weight: bold;">Event</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Attending</button>
-					</div>
-					<div>
-						<p style="display:inline-block; font-size: 13px;">Even Description</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
-					</div>
-					<div>
-						<span class="share-event">
-							<i class="event-icon fas fa-share"></i>
-						</span>
-						<span class="heart-toggle">
-							<i class="event-icon far fa-heart"></i>
-						</span>
-					</div>
-				</div>
-				<div class="rcorners2">
-					<div>
-						<p style="display:inline-block; font-weight: bold;">Event</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Attending</button>
-					</div>
-					<div>
-						<p style="display:inline-block; font-size: 13px;">Event Description</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
-					</div>
-					<div>
-						<span class="share-event">
-							<i class="event-icon fas fa-share"></i>
-						</span>
-						<span class="heart-toggle">
-							<i class="event-icon far fa-heart"></i>
-						</span>
-					</div>
-				</div>
-				<div class="rcorners2">
-					<div>
-						<p style="display:inline-block; font-weight: bold;">Event</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Denied</button>
-					</div>
-					<div>
-						<p style="display:inline-block; font-size: 13px;">Event Description</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Messaging Host</button>
-					</div>
-					<div>
-						<span class="share-event">
-							<i class="event-icon fas fa-share"></i>
-						</span>
-						<span class="heart-toggle">
-							<i class="event-icon far fa-heart"></i>
-						</span>
-					</div>
-				</div>
+		include_once("./config.php");
+		$con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
 
-				<br></br>
-				<h2 style="color:black;">Events Organized</h2>
-				<div class="rcorners2">
-					<div>
-						<p style="display:inline-block; font-weight: bold;">Event 1</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Invite</button>
-					</div>
-					<div>
-						<br></br>
-					</div>
-				</div>
-				<div class="rcorners2">
-					<div>
-						<p style="display:inline-block; font-weight: bold;">Event 2</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Invite</button>
-					</div>
-					<div>
-						<br></br>
-					</div>
-				</div>
-				<div class="rcorners2">
-					<div>
-						<p style="display:inline-block; font-weight: bold;">Event 2</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Invite</button>
-					</div>
-					<div>
-						<br></br>
-					</div>
-				</div>
-				<div class="rcorners2">
-					<div>
-						<p style="display:inline-block; font-weight: bold;">Event 2</p>
-						<button style="font-size: 0.8em; float: right; margin:2px;" type="button" class="btn btn-outline-dark btn-sm py-0">Invite</button>
-					</div>
-					<div>
-						<br></br>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col">
-			<h2 style="color:black;">About me</h2>
-			<div class="bio">
-				<p>Bio</p>
-			</div>
-		</div>
+		if (mysqli_connect_errno()) {
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+		}
+
+		$sql = "SELECT * FROM User WHERE username=? LIMIT 1";
+
+		$stmt = $con->prepare($sql); 
+		$stmt->bind_param("s", $username);
+		$stmt->execute();
+		$result = $stmt->get_result(); 
+
+		$row = $result->fetch_assoc();
+		$username = $row['username'];
+		$first_name = $row['first_name'];
+		$last_name = $row['last_name'];
+		$email = $row['email'];
+		$picture = $row['picture'];
+		?>
+
+		<h2>
+			<?php 
+			if (isset($first_name) && !empty($first_name)) {
+				echo $first_name;
+			}
+			if (isset($last_name) && !empty($last_name)) {
+				echo $last_name;
+			}
+			if (!isset($first_name) && !isset($last_name)) {
+				echo $username;
+			}
+			?>
+		</h2>
+
+		<h4 class='my-3'>Invitations</h4>
+
+		<h4 class='my-3'>Events Organized</h4>
 	</div>
-	</div>
-
+	
 	<?php include('js.html') ?>
-	<script src="js/profile.js"></script>
 </body>
 
 </html>

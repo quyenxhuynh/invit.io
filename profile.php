@@ -22,8 +22,12 @@
 		<?php
 		if (isset($_GET['username']) && !empty($_GET['username'])) {
 			$username = $_GET['username'];
-		} else {
+		} 
+		else if (isset($_SESSION['logged_in'])) {
 			$username = $_SESSION['logged_in'];
+		}
+		else {
+			header('Location: test.php');
 		}
 
 		include_once("./config.php");
@@ -43,31 +47,34 @@
 		$picture = $row['picture'];
 		?>
 
-		<?php
-
-		if (isset($picture) && !empty($picture)) {
-			echo '<img src="./upload/' . $picture . '" alt="profile picture" class="profile-pic" width=100px>';
-		}
-		else {
-			echo '<img src="./upload/default.jpg" alt="profile picture" class="profile-pic" width=100px>';
-		}
-
-		?>
-
-		<h2>
+		<div class="header-row">
 			<?php
 
-			if (isset($first_name) && !empty($first_name)) {
-				echo $first_name;
+			if (isset($picture) && !empty($picture)) {
+				echo '<img src="./upload/' . $picture . '" alt="profile picture" class="profile-pic" width=100px>';
+			} else {
+				echo '<img src="./upload/default.jpg" alt="profile picture" class="profile-pic" width=100px>';
 			}
-			if (isset($last_name) && !empty($last_name)) {
-				echo $last_name;
-			}
-			if (!isset($first_name) && !isset($last_name)) {
-				echo $username;
-			}
+
 			?>
-		</h2>
+
+			<h2 class='ml-3'>
+				<?php
+
+				if (isset($first_name) && !empty($first_name)) {
+					echo $first_name . ' ';
+				}
+				if (isset($last_name) && !empty($last_name)) {
+					echo $last_name;
+				}
+				if (!isset($first_name) && !isset($last_name)) {
+					echo $username;
+				}
+				?>
+			</h2>
+
+		</div>
+
 
 		<h4 class='my-3'>Invitations</h4>
 

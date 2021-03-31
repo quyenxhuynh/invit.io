@@ -1,16 +1,12 @@
 <?php
 
 session_start();
-if (isset($_SESSION['logged-in'])) {
+if (isset($_SESSION['logged_in'])) {
 	header('Location: base.php');
 }
 
 include_once("./config.php");
-$con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
 
-if (mysqli_connect_errno()) {
-	echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
 
 if (isset($_POST['sign-in'])) {
 	$sql = "SELECT password FROM User WHERE username = '$_POST[username]'";
@@ -25,7 +21,7 @@ if (isset($_POST['sign-in'])) {
 
 		if(password_verify($_POST['password'], $row['password'])){
 			$error =  "";
-			$_SESSION['logged-in'] = $_POST['username'];
+			$_SESSION['logged_in'] = $_POST['username'];
 			header("Location: base.php");
 		} else {
 			$error = "The username or password do not match";

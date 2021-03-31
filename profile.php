@@ -10,6 +10,7 @@
 	<meta name="author" content="quyen huynh, alex johnson">
 
 	<?php include("styles.html") ?>
+	<link rel="stylesheet" href="css/profile.css">
 
 	<title>invit.io</title>
 </head>
@@ -21,24 +22,18 @@
 		<?php
 		if (isset($_GET['username']) && !empty($_GET['username'])) {
 			$username = $_GET['username'];
-		}
-		else {
-			$username = $_SESSION['logged-in'];
+		} else {
+			$username = $_SESSION['logged_in'];
 		}
 
 		include_once("./config.php");
-		$con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
-
-		if (mysqli_connect_errno()) {
-		echo "Failed to connect to MySQL: " . mysqli_connect_error();
-		}
 
 		$sql = "SELECT * FROM User WHERE username=? LIMIT 1";
 
-		$stmt = $con->prepare($sql); 
+		$stmt = $con->prepare($sql);
 		$stmt->bind_param("s", $username);
 		$stmt->execute();
-		$result = $stmt->get_result(); 
+		$result = $stmt->get_result();
 
 		$row = $result->fetch_assoc();
 		$username = $row['username'];
@@ -48,8 +43,20 @@
 		$picture = $row['picture'];
 		?>
 
+		<?php
+
+		if (isset($picture) && !empty($picture)) {
+			echo '<img src="./upload/' . $picture . '" alt="profile picture" class="profile-pic" width=100px>';
+		}
+		else {
+			echo '<img src="./upload/default.jpg" alt="profile picture" class="profile-pic" width=100px>';
+		}
+
+		?>
+
 		<h2>
-			<?php 
+			<?php
+
 			if (isset($first_name) && !empty($first_name)) {
 				echo $first_name;
 			}
@@ -66,7 +73,7 @@
 
 		<h4 class='my-3'>Events Organized</h4>
 	</div>
-	
+
 	<?php include('js.html') ?>
 </body>
 

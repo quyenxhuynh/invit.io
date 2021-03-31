@@ -2,39 +2,46 @@
 
 <?php
 session_start();
-if (!isset($_SESSION['logged-in'])) {
+if (!isset($_SESSION['logged_in'])) {
     header('Location: sign-in.php');
 }
 
-$username = $_SESSION['logged-in'];
-
 include_once("./config.php");
-$con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
-
-if (mysqli_connect_errno()) {
-    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+if (!isset($_SESSION['set-up'])) {
+    include('var-setup.php');
 }
 
 if (isset($_POST['update-settings'])) {
-    $check = getimagesize($_FILES["image"]["tmp_name"]);
-    if ($check !== false) {
-        $image = $_FILES['image']['tmp_name'];
-        $imgContent = addslashes(file_get_contents($image));
-    }
-    else {
-        // to fix
-        echo "Please select an image file to upload.";  
-    }
-    // not done lol
-    $sql = "UPDATE User SET first_name='$_POST[fn]', last_name='$_POST[ln]', picture='$imgContent', email='$_POST[email]' first  WHERE username=? LIMIT 1";
-    $stmt = $con->prepare($sql);
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    if (empty($error)) {
+        $name = $username . ".";
+        $name = $name . pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+        // $name = $_FILES['file']['name'];
 
-    $row = $result->fetch_assoc();
+        $target_dir = "upload/";
+        $target_file = $target_dir . basename($_FILES["file"]["name"]);
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+        $extensions_arr = array("jpg", "jpeg", "png", "gif");
+
+        if (in_array($imageFileType, $extensions_arr)) {
+            $query = "UPDATE User SET picture='$name' WHERE username='$username'";
+            mysqli_query($con, $query);
+            move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $name);
+        }
+
+        $sql = "UPDATE User SET first_name=?, last_name=?, email=?, picture=? WHERE username=? LIMIT 1";
+        $stmt = $con->prepare($sql);
+        $first_name = !empty($_POST['first_name']) ? $_POST['first_name'] : $_SESSION['first_name'];
+        $last_name = !empty($_POST['last_name']) ? $_POST['last_name'] : $_SESSION['last_name'];
+        $email = !empty($_POST['email']) ? $_POST['email'] : $_SESSION['email'];
+        $stmt->bind_param('sssss', $first_name, $last_name, $email, $name, $username);
+        $stmt->execute();
+
+        $_SESSION['good_alert'] = "Settings saved!";
+        include('var-setup.php');
+        header('Location: settings.php');
+        exit();
+    }
 }
-
 
 ?>
 
@@ -55,56 +62,39 @@ if (isset($_POST['update-settings'])) {
     <?php include('navbar.php') ?>
 
     <div class="container">
+        <?php
+        if (isset($_SESSION['good_alert']) && !empty($_SESSION['good_alert'])) {
+            echo '<div class="alert alert-success" role="alert">' .
+                $_SESSION['good_alert'] .
+                '</div>';
+        }
+        unset($_SESSION['good_alert']);
+        ?>
         <h2>Settings</h2>
         <br>
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype='multipart/form-data'>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Profile Picture</label>
                 <div class="col-sm-10">
-                    <input name="pic" id="profile-pic" class="form-control" type="file">
-                    <span class="error_message" id="file_err"></span>
+                    <input type='file' name='file'>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
-                    <input name="fn" class="form-control" type="text" placeholder="Current First Name">
-                    <span class="error_message" id="fn_err"></span>
+                    <input name="first_name" class="form-control" type="text" placeholder="<?php echo $_SESSION['first_name'] ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Last Name</label>
                 <div class="col-sm-10">
-                    <input name="ln" class="form-control" type="text" placeholder="Current Last Name" value="">
-                    <span class="error_message" id="ln_err"></span>
+                    <input name="last_name" class="form-control" type="text" placeholder="<?php echo $_SESSION['last_name'] ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Username</label>
+                <label class="col-sm-2 col-form-label">Email Address</label>
                 <div class="col-sm-10">
-                    <input name="username" class="form-control" type="text" placeholder="<?php echo $_SESSION['logged-in'] ?>">
-                    <span class="error_message" id="user_err"></span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input name="email" class="form-control" type="email" placeholder="Current Email">
-                    <span class="error_message" id="email_err"></span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                    <input name="password1" class="form-control" type="password" placeholder="*********">
-                    <span class="error_message" id="pw1_err"></span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Confirm Password</label>
-                <div class="col-sm-10">
-                    <input name="password2" class="form-control" type="password" placeholder="*********">
-                    <span class="error_message" id="pw2_err"></span>
+                    <input name="email" class="form-control" type="email" placeholder="<?php echo $_SESSION['email'] ?>">
                 </div>
             </div>
             <button name="update-settings" class="btn-blue-muted float-right px-4" type="submit">Save Settings</button>
@@ -112,6 +102,25 @@ if (isset($_POST['update-settings'])) {
     </div>
 
     <?php include('js.html') ?>
+    <script>
+        var user = document.getElementById("username");
+        user.onkeyup = function() {
+            if (user.value.length > 150) {
+                user.setCustomValidity("Username too long!")
+            } else {
+                user.setCustomValidity("");
+            }
+        }
+
+        var pw1 = document.getElementById("password1");
+        var pw2 = document.getElementById("password2");
+
+        pw2.onkeyup = function() {
+            if (pw1.value != pw2.value) {
+                <?php $error = "Passwords don't match"; ?>
+            }
+        }
+    </script>
 </body>
 
 </html>

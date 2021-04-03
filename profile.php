@@ -45,6 +45,7 @@
 		$last_name = $row['last_name'];
 		$email = $row['email'];
 		$picture = $row['picture'];
+		$bio = $row['bio'];
 		?>
 
 		<div class="header-row">

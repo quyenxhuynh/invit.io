@@ -10,35 +10,51 @@
 
 .content {
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .rounded-outline {
     border-radius: 15px;
     border: 1px solid black;
+    padding: 15px;
     margin: 15px;
-    padding: 25px;
 }
 
-#invitations, #events-organized {
-    min-height: 25vh;
+.event-description {
+    font-size: small;
 }
 
 #about-me {
-    min-height: 60vh;
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#invitations {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#events-organized {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 
 @media only screen and (max-width:1000px) {
     .content {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
-    #invitations, #events-organized {
+    .invitations, .events-organized {
         min-height: 15vh;
     }
     
-    #about-me {
+    .about-me {
         min-height: 15vh;
     }
 }

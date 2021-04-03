@@ -7,3 +7,38 @@
     flex-direction: row;
     align-items: center;
 }
+
+.content {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.rounded-outline {
+    border-radius: 15px;
+    border: 1px solid black;
+    margin: 15px;
+    padding: 25px;
+}
+
+#invitations, #events-organized {
+    min-height: 25vh;
+}
+
+#about-me {
+    min-height: 60vh;
+}
+
+@media only screen and (max-width:1000px) {
+    .content {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #invitations, #events-organized {
+        min-height: 15vh;
+    }
+    
+    #about-me {
+        min-height: 15vh;
+    }
+}

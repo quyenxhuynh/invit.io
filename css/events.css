@@ -16,13 +16,6 @@
     grid-template-columns: 75% 25%;
 }
 
-.rounded-outline {
-    border-radius: 15px;
-    border: 1px solid black;
-    margin: 15px;
-    padding: 25px;
-}
-
 .row {
     flex-direction: row;
     display: flex;

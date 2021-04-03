@@ -83,6 +83,7 @@
 	</div>
 
 	<?php include('js.html') ?>
+	<script src="js/event.js"></script>
 </body>
 
 </html>

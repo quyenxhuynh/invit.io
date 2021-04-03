@@ -26,6 +26,7 @@
     grid-row: 1 / 2;
     grid-template-columns: subgrid;
     grid-template-rows: subgrid;
+    margin-bottom: em;
     /* background-color: indianred; */
 }
 

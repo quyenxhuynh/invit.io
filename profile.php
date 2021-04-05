@@ -26,9 +26,6 @@
 		else if (isset($_SESSION['logged_in'])) {
 			$username = $_SESSION['logged_in'];
 		}
-		else {
-			header('Location: test.php');
-		}
 
 		include_once("./config.php");
 

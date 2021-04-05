@@ -1,50 +1,50 @@
 <?php
 session_start();
-if (isset($_SESSION['logged-in'])) {
+if (isset($_SESSION['logged_in'])) {
 	header('Location: base.php');
 }
 
 include_once("./config.php");
-$con = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
-
-if (mysqli_connect_errno()) {
-	echo "Failed to connect to MySQL: " . mysqli_connect_error();
-}
 
 if (isset($_POST['sign-up'])) {
-	$sql = "SELECT * FROM User WHERE username = '$_POST[username]'";
-	$rs = mysqli_query($con, $sql);
+	$sql = "SELECT username FROM User WHERE username = ?";
+	$stmt = $con->prepare($sql);
+	$stmt->bind_param('s', $_POST['username']);
+	$stmt->execute();
+	$rs = $stmt->get_result();
 	if (!$rs) {
 		echo mysqli_error($con);
 	}
 	if (mysqli_num_rows($rs) > 0) {
 		$error = "Username taken!";
-	} else {
+	} 
+	else {
 		if (strlen($_POST['password1']) < 8) {
 			$error = "Password must be at least 8 characters long.";
 		} else if ($_POST['password1'] != $_POST['password2']) {
 			$error = "Passwords don't match.";
 		}
 
-		$hashed = password_hash($_POST['password1'], PASSWORD_DEFAULT);
+		if (empty($error)) {
+			$hashed = password_hash($_POST['password1'], PASSWORD_DEFAULT);
 
-		$sql = "INSERT INTO User (username, password, email)
-		VALUES
-		('$_POST[username]','$hashed','$_POST[email]')";
-
-		$rs = mysqli_query($con, $sql);
-		if (!$rs) {
-			echo mysqli_error($con);
+			$sql = "INSERT INTO User (username, password, email)
+			VALUES
+			(?, ?, ?)";
+			$stmt = $con->prepare($sql);
+			$stmt->bind_param('sss', $_POST['username'], $hashed, $_POST['email']);
+			if ($stmt->execute()) {
+				$error = "";
+				$_SESSION['logged_in'] = $_POST['username'];
+				header("Location: base.php");
+			}
+			else {
+				$error = mysqli_error($con);
+			}
 		}
-
-		$error = "";
-		$_SESSION['logged-in'] = $_POST['username'];
-		// echo $_SESSION['logged-in'];
-		header("Location: base.php");
-		// echo '<div class="alert alert-success" role="alert">Account created successfully</div>';
 	}
 	mysqli_close($con);
-	}
+}
 ?>
 
 <!doctype html>
@@ -64,11 +64,11 @@ if (isset($_POST['sign-up'])) {
 
 
 	<div class="container">
-		<?php if (isset($error)) {
+		<?php if (isset($error) && (!empty($error))) {
 			echo '<div class="alert alert-danger" role="alert">' .
 				$error .
 				'</div>';
-			}
+		}
 		?>
 		<h2>Create a New Account</h2>
 		<br>

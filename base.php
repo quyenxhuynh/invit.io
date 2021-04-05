@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+
+if (!isset($_SESSION['logged_in'])) {
+    header('Location: sign-in.php');
+}
+?>
 
 <!-- BASE TEMPLATE TO C/P TO NEW PAGES -->
 <!doctype html>
@@ -17,12 +23,13 @@
 <body>
 	<?php include('navbar.php') ?>
 
-	<?php
-		
-		if (isset($_SESSION['logged-in'])) {
-			echo 'Welcome back, ' . $_SESSION['logged-in'];
+	<div class="container">
+		<?php
+		if (isset($_SESSION['logged_in'])) {
+			echo 'Welcome back, ' . $_SESSION['logged_in'];
 		}
-	?>
+		?>
+	</div>
 
 	<?php include('js.html') ?>
 </body>

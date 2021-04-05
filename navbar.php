@@ -19,7 +19,7 @@
         <hr class="hide">
         <?php
 
-        if (isset($_SESSION['logged-in'])) {
+        if (isset($_SESSION['logged_in'])) {
             echo '
             <a class="nav-items hide" href="profile.php">Profile</a>
             <a class="nav-items hide" href="settings.php">Settings</a>
@@ -37,11 +37,27 @@
     <!-- PROFILE, SETTINGS, AND LOGOUT -->
     <div class="grid-end">
         <?php
-        if (isset($_SESSION['logged-in'])) {
+        include_once("./config.php");
+
+        if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
+            $username = $_SESSION['logged_in'];
+            $sql = "SELECT picture FROM User WHERE username='$username' LIMIT 1";
+            $rs = $con->query($sql);
+            $row = $rs->fetch_assoc();
+
+            if (!empty($row['picture'])) {
+                $pic = $row['picture'];
+            } else {
+                $pic = 'default.jpg';
+            }
+        }
+
+
+        if (isset($_SESSION['logged_in'])) {
             echo '
             <a id="new-event-btn" class="btn-blue-muted m-2" href="new-event.php">+ New Event</a>
             <div class="btn-group max-width-4">
-                <img id="prof-dropdown" src="media/profile-picture.jpg" class="profile-pic dropdown-toggle" id="dropdownMenuButton"
+                <img id="prof-dropdown" src="./upload/' . $pic . '" class="profile-pic dropdown-toggle" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">
                 <div class="dropdown-menu dropdown-menu-right right-align min-width-content"
                     aria-labelledby="dropdownMenuButton">

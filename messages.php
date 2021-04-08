@@ -25,14 +25,34 @@ if (!isset($_SESSION['logged_in'])) {
 
 	<div class="border">
 		<div class='sidebar'>
-			dshf
+			<div class='msg-side'>
+				<div class='msg-name'>John Doe</div>
+				<div class='msg-preview'>hello</div>
+			</div>
+
+			<div class='hl'></div>
 		</div>
+		<div class='vl'></div>
 		<div class='current-msg'>
 			<div class='header-row'>
 				<img src="./upload/default.jpg" alt="profile picture" class="profile-pic" width=100px>
 				<h4 class='m-2'>John Doe</h4>
 			</div>
-			<hr>
+			<div class='hl'></div>
+			<div class='msgs'>
+				<div class='prev-msgs'>
+					<div class='to-msg'>hj!</div>
+					<div class='from-msg'>hello!</div>
+				</div>
+				<div class='new-msg'>
+					<form action="">
+						<input size='1' type="text" name="" class='new-msg-content' placeholder="Message">
+						<button class='new-msg-btn'>Send</button>
+					</form>
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 

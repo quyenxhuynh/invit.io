@@ -1,27 +1,118 @@
 .border {
-    border: 2px solid black;
+    border: 1px solid black !important;
     border-radius: 15px;
     margin: 80px 50px;
     height: 80vh;
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 20.75% .05% auto;
+    /* padding: 0; */
 }
 
-.sidebar {
+.msg-side {
     margin: 15px;
 }
-
-.current-msg {
-    margin: 15px;
-}
-
 .msg-name {
     font-weight: bolder;
 }
 
 .header-row {
+    margin: 15px;
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 1em;
+}
+
+.msg-preview {
+    font-size: small;
+}
+
+.vl {
+    border-left: 1px solid black;
+    /* border:  1px solid black; */
+    /* margin: 15px 0; */
+    /* margin-left: 10px; */
+}
+
+.hl {
+    border-top: 1px solid black;
+}
+
+.msgs {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: thistle;
+    position: relative;
+    bottom: 0;
+}
+
+.prev-msgs {
+    display: flex;
+    flex-direction: column;
+    /* background-color: khaki; */
+    justify-content: space-between;
+}
+
+
+.to-msg, .from-msg {
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 0 10px;
+    margin-top: 10px;
+}
+
+.to-msg {
+    border: 1px solid rgb(126, 126, 126);
+    /* background-color: rgb(126, 126, 126); */
+    align-self: flex-start;
+}
+
+.from-msg {
+    border: 1px solid #71A7FF;
+    background-color: #71A7FF;
+    color: white;
+    align-self: flex-end;
+}
+
+.new-msg {
+    /* position: -webkit-sticky; */
+   
+    background-color: khaki;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    min-width: 90%;
+    align-content: stretch;
+    min-height: 3.5em;
+}
+
+.new-msg-content {
+    border: 0px;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 5px 10px;
+    min-width: 92%;
+}
+
+.new-msg-content:focus {
+    border: 0px;
+    outline: none;
+}
+
+.new-msg-btn {
+    float: right;
+    background-color: #71A7FF;
+    color: white;
+    border-radius: 5px;
+    margin: 10px;
+    margin-left: 0;
+    padding: 5px 10px;
+    border: 1px solid #71A7FF;
+}
+
+.new-msg-btn:hover {
+    background-color: #6296e9;
+    color: white;
+    border: 1px solid #71A7FF;
 }

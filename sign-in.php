@@ -9,8 +9,11 @@ include_once("./config.php");
 
 
 if (isset($_POST['sign-in'])) {
-	$sql = "SELECT password FROM User WHERE username = '$_POST[username]'";
-	$rs = mysqli_query($con, $sql);
+	$sql = "SELECT password FROM User WHERE username = ?";
+	$stmt = $con->prepare($sql);
+	$stmt->bind_param('s', $_POST['username']);
+	$stmt->execute();
+	$rs = $stmt->get_result();
 	if (!$rs) {
 		echo mysqli_error($con);
 	}

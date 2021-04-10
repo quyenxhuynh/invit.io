@@ -40,7 +40,7 @@ session_start();
 		<!-- ALL EVENTS -->
 		<div class="events-list-lg">
 			<div class="event rounded-outline">
-				<h5><a href="event.php">Event Name</a></h5>
+				<h5><a href="/invit.io/event.php">Event Name</a></h5>
 				<!-- <a href="event.php"><h5>Event Name</h5></a> -->
 				<p>Event Description</p>
 			</div>

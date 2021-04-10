@@ -13,22 +13,22 @@
 
     <!-- NAVIGATION -->
     <div id="nav">
-        <a class="nav-items" href="base.php">Home</a>
-        <a class="nav-items" href="messages.php">Messages</a>
-        <a class="nav-items" href="events.php">All Events</a>
+        <a class="nav-items" href="/invit.io/base.php">Home</a>
+        <a class="nav-items" href="/invit.io/messages.php">Messages</a>
+        <a class="nav-items" href="/invit.io/events.php">All Events</a>
         <hr class="hide">
         <?php
 
         if (isset($_SESSION['logged_in'])) {
             echo '
-            <a class="nav-items hide" href="profile.php">Profile</a>
-            <a class="nav-items hide" href="settings.php">Settings</a>
-            <a class="nav-items hide" href="sign-out.php">Sign Out</a>
+            <a class="nav-items hide" href="/invit.io/profile.php">Profile</a>
+            <a class="nav-items hide" href="/invit.io/settings.php">Settings</a>
+            <a class="nav-items hide" href="/invit.io/sign-out.php">Sign Out</a>
             ';
         } else {
             echo '
-            <a class="nav-items hide" href="sign-up.php">Register</a>
-            <a class="nav-items hide" href="sign-in.php">Sign In</a>
+            <a class="nav-items hide" href="/invit.io/sign-up.php">Register</a>
+            <a class="nav-items hide" href="/invit.io/sign-in.php">Sign In</a>
             ';
         }
         ?>
@@ -55,22 +55,22 @@
 
         if (isset($_SESSION['logged_in'])) {
             echo '
-            <a id="new-event-btn" class="btn-blue-muted m-2" href="new-event.php">+ New Event</a>
+            <a id="new-event-btn" class="btn-blue-muted m-2" href="/invit.io/new-event.php">+ New Event</a>
             <div class="btn-group max-width-4">
                 <img id="prof-dropdown" src="./upload/' . $pic . '" class="profile-pic dropdown-toggle" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">
                 <div class="dropdown-menu dropdown-menu-right right-align min-width-content"
                     aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="profile.php">Profile</a>
-                    <a class="dropdown-item" href="settings.php">Settings</a>
-                    <a class="dropdown-item" href="sign-out.php">Sign Out</a>
+                    <a class="dropdown-item" href="/invit.io/profile.php">Profile</a>
+                    <a class="dropdown-item" href="/invit.io/settings.php">Settings</a>
+                    <a class="dropdown-item" href="/invit.io/sign-out.php">Sign Out</a>
                 </div>
             </div>
             ';
         } else {
             echo '
-            <a id="new-event-btn" class="btn-blue-muted m-2" href="sign-up.php">Register</a>
-            <a id="new-event-btn" class="btn-blue-muted-outline m-2" href="sign-in.php">Sign In</a>';
+            <a id="new-event-btn" class="btn-blue-muted m-2" href="/invit.io/sign-up.php">Register</a>
+            <a id="new-event-btn" class="btn-blue-muted-outline m-2" href="/invit.io/sign-in.php">Sign In</a>';
         }
         ?>
     </div>

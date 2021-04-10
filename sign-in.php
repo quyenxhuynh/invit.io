@@ -27,7 +27,6 @@ if (isset($_POST['sign-in'])) {
 			$error = "The username or password do not match";
 		}
 	}
-	mysqli_close($con);
 }
 
 ?>
@@ -72,7 +71,7 @@ if (isset($_POST['sign-in'])) {
 			</div>
 			<button name="sign-in" class="btn-blue-muted float-right px-4" type="submit">Sign In</button>
 		</form>
-		<small>Don't have an account? <a href="sign-up.php">Sign up!</a></small>
+		<small>Don't have an account? <a href="/invit.io/sign-up.php">Sign up!</a></small>
 	</div>
 
 	<?php include('js.html') ?>

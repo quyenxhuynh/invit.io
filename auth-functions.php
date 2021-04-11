@@ -53,8 +53,7 @@ function register($user, $email, $pw1, $pw2)
     if (strlen($pw1) < 8) {
         $error = "Password must be at least 8 characters long.";
         return $error;
-    } 
-    else if ($pw1 != $pw2) {
+    } else if ($pw1 != $pw2) {
         $error = "Passwords don't match.";
         return $error;
     }

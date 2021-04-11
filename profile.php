@@ -54,7 +54,6 @@
 
 		<div class="header-row">
 			<?php
-
 			if (isset($picture) && !empty($picture)) {
 				echo '<img src="/invit.io/upload/' . $picture . '" alt="profile picture" class="profile-pic" width=100px>';
 			} else {
@@ -74,6 +73,8 @@
 				}
 				if (!isset($first_name) && !isset($last_name)) {
 					echo $username;
+				} else {
+					echo ' (@' . $username . ')';
 				}
 				?>
 			</h2>

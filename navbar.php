@@ -37,7 +37,8 @@
     <!-- PROFILE, SETTINGS, AND LOGOUT -->
     <div class="grid-end">
         <?php
-        include_once("./config.php");
+        include_once("config.php");
+        // echo realpath('config.php');
 
         if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
             $username = $_SESSION['logged_in'];
@@ -57,7 +58,7 @@
             echo '
             <a id="new-event-btn" class="btn-blue-muted m-2" href="/invit.io/new-event.php">+ New Event</a>
             <div class="btn-group max-width-4">
-                <img id="prof-dropdown" src="./upload/' . $pic . '" class="profile-pic dropdown-toggle" id="dropdownMenuButton"
+                <img id="prof-dropdown" src="/invit.io/upload/' . $pic . '" class="profile-pic dropdown-toggle" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">
                 <div class="dropdown-menu dropdown-menu-right right-align min-width-content"
                     aria-labelledby="dropdownMenuButton">

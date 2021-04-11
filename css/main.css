@@ -29,6 +29,14 @@ a:hover {
     text-decoration: none;
 }
 
+.highlighted-link {
+    color: #71A7FF;
+}
+
+.highlighted-link:hover {
+    color: #6296e9;
+}
+
 .btn-blue-muted {
     background-color: #71A7FF;
     color: white;

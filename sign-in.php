@@ -5,31 +5,9 @@ if (isset($_SESSION['logged_in'])) {
 	header('Location: base.php');
 }
 
-include_once("./config.php");
-
-
+include_once('auth-functions.php');
 if (isset($_POST['sign-in'])) {
-	$sql = "SELECT password FROM User WHERE username = ?";
-	$stmt = $con->prepare($sql);
-	$stmt->bind_param('s', $_POST['username']);
-	$stmt->execute();
-	$rs = $stmt->get_result();
-	if (!$rs) {
-		echo mysqli_error($con);
-	}
-	if (mysqli_num_rows($rs) < 1) {
-		$error = "Username doesn't exist";
-	} else {
-		$row = mysqli_fetch_array($rs, MYSQLI_ASSOC);
-
-		if(password_verify($_POST['password'], $row['password'])){
-			$error =  "";
-			$_SESSION['logged_in'] = $_POST['username'];
-			header("Location: base.php");
-		} else {
-			$error = "The username or password do not match";
-		}
-	}
+	$error = login($_POST['username'], $_POST['password']);
 }
 
 ?>
@@ -40,6 +18,7 @@ if (isset($_POST['sign-in'])) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="quyen huynh, alex johnson">
 
 	<?php include("styles.html") ?>
 
@@ -74,7 +53,7 @@ if (isset($_POST['sign-in'])) {
 			</div>
 			<button name="sign-in" class="btn-blue-muted float-right px-4" type="submit">Sign In</button>
 		</form>
-		<small>Don't have an account? <a href="/invit.io/sign-up.php">Sign up!</a></small>
+		<small>Don't have an account? <a href="/invit.io/sign-up.php" class="highlighted-link">Sign up!</a></small>
 	</div>
 
 	<?php include('js.html') ?>

@@ -5,6 +5,14 @@ session_start();
 <!doctype html>
 <html lang="en">
 
+<script>
+	// https://www.sitepoint.com/get-url-parameters-with-javascript/
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const event_id = urlParams.get('event_id');
+	document.cookie = "current_event_id=" + event_id;
+</script>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,52 +21,88 @@ session_start();
 	<?php include("styles.html") ?>
 	<link rel="stylesheet" href="css/events.css">
 
-	<title>Event Name</title>
+	
 </head>
+
+
 
 <body>
 	<?php include('navbar.php') ?>
+	<?php 
+		include_once("./config.php");
 
-	<!-- HEADER -->
-	<div class="container">
-		<div class="header">
-			<h2>Event Name</h2>
-			<div>
-				<span class="heart-toggle mx-1">
-					<i class="event-icon far fa-heart fa-2x"></i>
-				</span>
-				<span class="share-event mx-1">
-					<i class="event-icon fas fa-share fa-2x"></i>
-				</span>
+		// echo "<script>if(!window.location.hash) {
+		// 	window.location = window.location + '#loaded';
+		// 	window.location.reload();
+		// }</script>";
 
-			</div>
+		$current_event_id=$_GET['event_id'];
 
-		</div>
+		// echo '<script>alert('.$current_event_id.')</script>';
+		
 
-		<!-- CONTENT -->
-		<div class="content">
-			<div class="left rounded-outline">
-				<div class="description">
-					Full description and details of event. <br>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores ab voluptas aperiam modi iusto labore eveniet impedit dolore distinctio dolorem exercitationem minima ut, quod unde natus optio doloribus atque facilis, praesentium magni? Quasi, nam. Iusto, ab perspiciatis? Repellat tenetur rem facere eaque. Exercitationem ratione mollitia fugiat, itaque doloribus reprehenderit a.
+		$sql = "SELECT * FROM Event Where event_id='$current_event_id'";
+		$stmt = $con->prepare($sql);
+		if ($stmt->execute()) {
+			$error = "";
+		}
+		else {
+			$error = mysqli_error($con);
+		}
+		$results = $stmt->get_result();
+	
+		foreach($results as $result)
+			echo '<title>'.$result['event_title'].'</title>
+			<!-- HEADER -->
+			<div class="container">
+				<div class="header">
+					<h2>'.$result['event_title'].'</h2>
+					<div>
+						<span class="heart-toggle mx-1">
+							<i class="event-icon far fa-heart fa-2x"></i>
+						</span>
+						<span class="share-event mx-1">
+							<i class="event-icon fas fa-share fa-2x"></i>
+						</span>
+		
+					</div>
+		
 				</div>
-			</div>
+		
+				<!-- CONTENT -->
+				<div class="content">
+					<div class="left rounded-outline">
+						<div class="description">
+							'.$result['description'].'
+						</div>
+						<a style="float:right" id="new-event-btn" class="btn-blue-muted m-2" href="delete.php?id='.$result['event_id'].'">Delete</a>
+						<a style="float:right" id="new-event-btn" class="btn-blue-muted m-2" href="update-task.php?id='.$result['event_id'].'">Update</a>
+					</div>
+		
+					<div class="right rounded-outline">
+						<div class="row">
+							<img class="profile-pic mx-3" src="media/profile-picture.jpg" alt="">
+							<h5><a href="profile.php">John Doe</a></h5>
+						</div>
+						<div class="row">
+							'.$result['date'].' <br>
+							'.$result['time'].'
+						</div>
+					</div>
+				</div>
+			</div>'
+		?>
 
-			<div class="right rounded-outline">
-				<div class="row">
-					<img class="profile-pic mx-3" src="media/profile-picture.jpg" alt="">
-					<h5><a href="profile.php">John Doe</a></h5>
-				</div>
-				<div class="row">
-					Tuesday, March 23, 2021 <br>
-					2:00pm
-				</div>
-			</div>
-		</div>
-	</div>
+<script>
+function deleteData(){
+		alert('dog')
+}
+</script>
+
 
 	<?php include('js.html') ?>
-	<script src="js/event.js"></script>
+	<script src="js/event.js">
+</script>
 </body>
 
 </html>

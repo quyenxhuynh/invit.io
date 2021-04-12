@@ -57,7 +57,7 @@ if (isset($_POST['sign-in'])) {
 		?>
 		<h2>Sign in</h2>
 		<br>
-		<form method="post">
+		<form onsubmit="return cookies()" method="post">
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Username</label>
 				<div class="col-sm-10">
@@ -70,14 +70,18 @@ if (isset($_POST['sign-in'])) {
 					<input id="password" name="password" class="form-control" type="password" placeholder="********" required>
 				</div>
 			</div>
-			<button name="sign-in" class="btn-blue-muted float-right px-4" type="submit">Sign In</button>
+			<button name="sign-in" class="btn-blue-muted float-right px-4" onsubmit="return cookies()" type="submit">Sign In</button>
 		</form>
 		<small>Don't have an account? <a href="sign-up.php">Sign up!</a></small>
 	</div>
 
 	<?php include('js.html') ?>
 	<script>
-		var user = document.getElementById("username");
+		function cookies(){
+			var user = document.getElementById("username");
+			document.cookie = "username=" + user.value;
+		}
+
 		user.onkeyup = function () {
 			if (user.value.length > 150) {
 				user.setCustomValidity("Username too long!")

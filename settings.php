@@ -12,31 +12,41 @@ if (!isset($_SESSION['set-up'])) {
 }
 
 if (isset($_POST['update-settings'])) {
+    $username = $_SESSION['logged_in'];
+    
     if (empty($error)) {
-        $name = $username . ".";
-        $name = $name . pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
-        // $name = $_FILES['file']['name'];
-
-        $target_dir = "upload/";
-        $target_file = $target_dir . basename($_FILES["file"]["name"]);
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-        $extensions_arr = array("jpg", "jpeg", "png", "gif");
-
-        if (in_array($imageFileType, $extensions_arr)) {
-            $query = "UPDATE User SET picture='$name' WHERE username='$username'";
-            mysqli_query($con, $query);
-            move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $name);
+        if (isset($_FILES['file']['name']) && !empty($_FILES['file']['name'])) {
+            $name = $_SESSION['logged_in'] . ".";
+            $name = $name . pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
+    
+            $target_dir = "upload/";
+            $target_file = $target_dir . basename($_FILES["file"]["name"]);
+            $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+            $extensions_arr = array("jpg", "jpeg", "png", "gif");
+    
+            if (in_array($imageFileType, $extensions_arr)) {
+                $query = "UPDATE User SET picture='$name' WHERE username='$username'";
+                mysqli_query($con, $query);
+                move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $name);
+                // $_SESSION['good_alert'] = $_FILES['file']['tmp_name'];
+            }
         }
+        
 
-        $sql = "UPDATE User SET first_name=?, last_name=?, email=?, picture=? WHERE username=? LIMIT 1";
+        $sql = "UPDATE User SET first_name=?, last_name=?, email=? WHERE username=?";
         $stmt = $con->prepare($sql);
         $first_name = !empty($_POST['first_name']) ? $_POST['first_name'] : $_SESSION['first_name'];
         $last_name = !empty($_POST['last_name']) ? $_POST['last_name'] : $_SESSION['last_name'];
         $email = !empty($_POST['email']) ? $_POST['email'] : $_SESSION['email'];
-        $stmt->bind_param('sssss', $first_name, $last_name, $email, $name, $username);
-        $stmt->execute();
+        $stmt->bind_param('ssss', $first_name, $last_name, $email, $username);
+        // $stmt->execute();
 
-        $_SESSION['good_alert'] = "Settings saved!";
+        if ($stmt->execute()) {
+            $_SESSION['good_alert'] = "Settings saved!";
+        } else {
+            echo mysqli_error($con);
+        }
+
         include('var-setup.php');
         header('Location: settings.php');
         exit();

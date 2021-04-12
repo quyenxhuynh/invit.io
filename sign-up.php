@@ -4,46 +4,9 @@ if (isset($_SESSION['logged_in'])) {
 	header('Location: base.php');
 }
 
-include_once("./config.php");
-
 if (isset($_POST['sign-up'])) {
-	$sql = "SELECT username FROM User WHERE username = ?";
-	$stmt = $con->prepare($sql);
-	$stmt->bind_param('s', $_POST['username']);
-	$stmt->execute();
-	$rs = $stmt->get_result();
-	if (!$rs) {
-		echo mysqli_error($con);
-	}
-	if (mysqli_num_rows($rs) > 0) {
-		$error = "Username taken!";
-	} 
-	else {
-		if (strlen($_POST['password1']) < 8) {
-			$error = "Password must be at least 8 characters long.";
-		} else if ($_POST['password1'] != $_POST['password2']) {
-			$error = "Passwords don't match.";
-		}
-
-		if (empty($error)) {
-			$hashed = password_hash($_POST['password1'], PASSWORD_DEFAULT);
-
-			$sql = "INSERT INTO User (username, password, email)
-			VALUES
-			(?, ?, ?)";
-			$stmt = $con->prepare($sql);
-			$stmt->bind_param('sss', $_POST['username'], $hashed, $_POST['email']);
-			if ($stmt->execute()) {
-				$error = "";
-				$_SESSION['logged_in'] = $_POST['username'];
-				header("Location: base.php");
-			}
-			else {
-				$error = mysqli_error($con);
-			}
-		}
-	}
-	mysqli_close($con);
+	include_once('auth-functions.php');
+	$error = register($_POST['username'], $_POST['email'], $_POST['password1'], $_POST['password2']);
 }
 ?>
 

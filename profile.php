@@ -126,38 +126,38 @@
 			$sql = "SELECT * FROM Event WHERE organizer='$username' LIMIT 4";
 			$rs = $con->query($sql);
 			?>
-
 			<div id="events-organized">
 				<?php
 				if ($rs->num_rows > 0) {
+					echo "<h4>Events Organized</h4>";
 					while ($row = $rs->fetch_assoc()) {
-						echo "<h4>Events Organized</h4><div class='event rounded-outline'>
-						<div class='left-event'>
-							<h6>" . $row['event_title'] . "</h6>
-							<div class='event-description'>" . $row['description'] . "</div>
-						</div>
-						<div class='right-event'>";
-						if ($username != $_SESSION['logged_in']) {
+						echo "<div class='event rounded-outline'>
+					<div class='left-event'>
+						<h6>" . $row['event_title'] . "</h6>
+						<div class='event-description'>" . $row['description'] . "</div>
+					</div>
+					<div class='right-event'>";
+						if ($_SESSION['logged_in'] != $username) {
 							echo "<div class='my-2'>
-								<a href='' class='btn-yes'>Yes</a>
-								<a href='' class='btn-no'>No</a>
-								<a href='' class='btn-maybe'>Maybe</a>
-							</div>
-							<div class='mb-2 right'>
-							<a href='/invit.io/new-msg.php?user=" . $username . "' class='btn-blue-muted-outline btn-invite'>Message Host</a></div>";
+						<a href='' class='btn-yes'>Yes</a>
+						<a href='' class='btn-no'>No</a>
+						<a href='' class='btn-maybe'>Maybe</a>
+					</div>
+					<div class='mb-2 right'>
+						<a href='' class='btn-blue-muted-outline btn-invite'>Message Host</a></div>";
 						}
 
 						echo "
-							<div class='right'>
-								<span class='heart-toggle mx-1'>
-									<i class='event-icon far fa-heart'></i>
-								</span>
-								<span class='share-event mx-1'>
-									<i class='event-icon fas fa-share'></i>
-								</span>
-							</div>
+						<div class='right'>
+							<span class='heart-toggle mx-1'>
+								<i class='event-icon far fa-heart'></i>
+							</span>
+							<span class='share-event mx-1'>
+								<i class='event-icon fas fa-share'></i>
+							</span>
 						</div>
-					</div>";
+					</div>
+				</div>";
 					}
 				}
 				?>
@@ -166,7 +166,7 @@
 	</div>
 
 	<?php include('js.html') ?>
-	<script src="js/event.js"></script>
+	<script src="/invit.io/js/event.js"></script>
 </body>
 
 </html>

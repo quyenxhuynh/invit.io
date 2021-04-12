@@ -4,8 +4,6 @@ if (isset($_SESSION['logged_in'])) {
 	header('Location: base.php');
 }
 
-include_once("./config.php");
-
 if (isset($_POST['sign-up'])) {
 	$sql = "SELECT email FROM User WHERE email = ?";
 	$stmt = $con->prepare($sql);
@@ -59,6 +57,8 @@ if (isset($_POST['sign-up'])) {
 		}
 	}
 	mysqli_close($con);
+	include_once('auth-functions.php');
+	$error = register($_POST['username'], $_POST['email'], $_POST['password1'], $_POST['password2']);
 }
 }
 ?>

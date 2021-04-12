@@ -1,6 +1,5 @@
 <?php session_start(); ?>
 
-<!-- BASE TEMPLATE TO C/P TO NEW PAGES -->
 <!doctype html>
 <html lang="en">
 
@@ -10,7 +9,7 @@
 	<meta name="author" content="quyen huynh, alex johnson">
 
 	<?php include("styles.html") ?>
-	<link rel="stylesheet" href="css/profile.css">
+	<link rel="stylesheet" href="/invit.io/css/profile.css">
 
 	<title>invit.io</title>
 </head>
@@ -19,10 +18,18 @@
 	<?php include('navbar.php') ?>
 
 	<div class="container">
+		
 		<?php
 		if (isset($_GET['username']) && !empty($_GET['username'])) {
 			$username = $_GET['username'];
 		} 
+		else if (isset($_GET['category']) && !empty($_GET['category'])) {
+			$username = $_GET['category'];
+		}
+		else if (strpos($_SERVER["REQUEST_URI"], "profile/") !== false) {
+			$username = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], "profile") + strlen('profile/'));
+			$username = str_replace("/", "", $username);
+		}
 		else if (isset($_SESSION['logged_in'])) {
 			$username = $_SESSION['logged_in'];
 		}
@@ -47,11 +54,10 @@
 
 		<div class="header-row">
 			<?php
-
 			if (isset($picture) && !empty($picture)) {
-				echo '<img src="./upload/' . $picture . '" alt="profile picture" class="profile-pic" width=100px>';
+				echo '<img src="/invit.io/upload/' . $picture . '" alt="profile picture" class="profile-pic" width=100px>';
 			} else {
-				echo '<img src="./upload/default.jpg" alt="profile picture" class="profile-pic" width=100px>';
+				echo '<img src="/invit.io/upload/default.jpg" alt="profile picture" class="profile-pic" width=100px>';
 			}
 
 			?>
@@ -67,6 +73,8 @@
 				}
 				if (!isset($first_name) && !isset($last_name)) {
 					echo $username;
+				} else {
+					echo ' (@' . $username . ')';
 				}
 				?>
 			</h2>

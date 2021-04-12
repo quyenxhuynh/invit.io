@@ -91,9 +91,7 @@
 					} ?>
 				</div>
 			</div>
-
-			<!-- EVENT LOOP 1 HERE -->
-			<div id="invitations">
+			<div id='invitations'>
 				<h4>Invitations</h4>
 				<div class='event rounded-outline'>
 					<div class='left-event'>
@@ -102,19 +100,19 @@
 					</div>
 					<div class='right-event'>
 						<div class='my-2'>
-							<a href="" class='btn-yes'>Yes</a>
-							<a href="" class='btn-no'>No</a>
-							<a href="" class='btn-maybe'>Maybe</a>
+							<a href='' class='btn-yes'>Yes</a>
+							<a href='' class='btn-no'>No</a>
+							<a href='' class='btn-maybe'>Maybe</a>
 						</div>
 						<div class='mb-2 right'>
-							<a href="" class='btn-blue-muted-outline btn-invite'>Message Host</a>
+							<a href='' class='btn-blue-muted-outline btn-invite'>Message Host</a>
 						</div>
 						<div class='right'>
-							<span class="heart-toggle mx-1">
-								<i class="event-icon far fa-heart"></i>
+							<span class='heart-toggle mx-1'>
+								<i class='event-icon far fa-heart'></i>
 							</span>
-							<span class="share-event mx-1">
-								<i class="event-icon fas fa-share"></i>
+							<span class='share-event mx-1'>
+								<i class='event-icon fas fa-share'></i>
 							</span>
 						</div>
 					</div>
@@ -137,15 +135,18 @@
 						<div class='event-description'>" . $row['description'] . "</div>
 					</div>
 					<div class='right-event'>";
-						if ($_SESSION['logged_in'] != $username) {
-							echo "<div class='my-2'>
+						if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
+							if ($_SESSION['logged_in'] != $username) {
+								echo "<div class='my-2'>
 						<a href='' class='btn-yes'>Yes</a>
 						<a href='' class='btn-no'>No</a>
 						<a href='' class='btn-maybe'>Maybe</a>
 					</div>
 					<div class='mb-2 right'>
 						<a href='' class='btn-blue-muted-outline btn-invite'>Message Host</a></div>";
+							}
 						}
+
 
 						echo "
 						<div class='right'>

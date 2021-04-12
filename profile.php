@@ -18,19 +18,16 @@
 	<?php include('navbar.php') ?>
 
 	<div class="container">
-		
+
 		<?php
 		if (isset($_GET['username']) && !empty($_GET['username'])) {
 			$username = $_GET['username'];
-		} 
-		else if (isset($_GET['category']) && !empty($_GET['category'])) {
+		} else if (isset($_GET['category']) && !empty($_GET['category'])) {
 			$username = $_GET['category'];
-		}
-		else if (strpos($_SERVER["REQUEST_URI"], "profile/") !== false) {
+		} else if (strpos($_SERVER["REQUEST_URI"], "profile/") !== false) {
 			$username = substr($_SERVER["REQUEST_URI"], strpos($_SERVER["REQUEST_URI"], "profile") + strlen('profile/'));
 			$username = str_replace("/", "", $username);
-		}
-		else if (isset($_SESSION['logged_in'])) {
+		} else if (isset($_SESSION['logged_in'])) {
 			$username = $_SESSION['logged_in'];
 		}
 
@@ -82,9 +79,87 @@
 		</div>
 
 
-		<h4 class='my-3'>Invitations</h4>
+		<div class='content mt-2'>
+			<div id="about me">
+				<h4>About Me</h4>
+				<div class='rounded-outline'>
+					<?php
+					if (!empty($bio)) {
+						echo $bio;
+					} else {
+						echo 'Welcome to ' . $username . "'s profile page!";
+					} ?>
+				</div>
+			</div>
 
-		<h4 class='my-3'>Events Organized</h4>
+			<!-- EVENT LOOP 1 HERE -->
+			<div id="invitations">
+				<h4>Invitations</h4>
+				<div class='event rounded-outline'>
+					<div class='left-event'>
+						<h6>Event Name</h6>
+						<div class='event-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, et, quam eius quaerat praesentium consectetur illo quas, totam nisi error autem. Nisi, veniam.</div>
+					</div>
+					<div class='right-event'>
+						<div class='my-2'>
+							<a href="" class='btn-yes'>Yes</a>
+							<a href="" class='btn-no'>No</a>
+							<a href="" class='btn-maybe'>Maybe</a>
+						</div>
+						<div class='mb-2 right'>
+							<a href="" class='btn-blue-muted-outline'>Message Host</a>
+						</div>
+						<div class='right'>
+							<span class="heart-toggle mx-1">
+								<i class="event-icon far fa-heart"></i>
+							</span>
+							<span class="share-event mx-1">
+								<i class="event-icon fas fa-share"></i>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- EVENT LOOP 2 HERE -->
+			<?php 
+				$sql = "SELECT * FROM Event WHERE organizer='$username' LIMIT 4";
+				$rs = $con->query($sql);
+			?>
+
+			<div id="events-organized">
+				<?php 
+				if ($rs->num_rows > 0) {
+					while ($row = $rs->fetch_assoc()) {
+						echo "<h4>Events Organized</h4><div class='event rounded-outline'>
+						<div class='left-event'>
+							<h6>" . $row['event_title'] . "</h6>
+							<div class='event-description'>" . $row['description'] ."</div>
+						</div>
+						<div class='right-event'>
+							<div class='my-2'>
+								<a href='' class='btn-yes'>Yes</a>
+								<a href='' class='btn-no'>No</a>
+								<a href='' class='btn-maybe'>Maybe</a>
+							</div>
+							<div class='mb-2 right'>
+								<a href='/invit.io/new-msg.php?user=" . $username . "' class='btn-blue-muted-outline'>Message Host</a>
+							</div>
+							<div class='right'>
+								<span class='heart-toggle mx-1'>
+									<i class='event-icon far fa-heart'></i>
+								</span>
+								<span class='share-event mx-1'>
+									<i class='event-icon fas fa-share'></i>
+								</span>
+							</div>
+						</div>
+					</div>";
+					}
+				}
+				?>
+			</div>
+		</div>
 	</div>
 
 	<?php include('js.html') ?>

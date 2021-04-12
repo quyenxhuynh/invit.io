@@ -64,6 +64,19 @@ a:hover {
     border: 1px solid #71A7FF;
 }
 
+.btn-red-muted {
+    background-color: #ff8271;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 12px;
+    border: 0;
+}
+
+.btn-red-muted:hover {
+    background-color: #ec6452;
+    color: white;
+}
+
 
 .profile-pic {
     height: 50px;

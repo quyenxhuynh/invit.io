@@ -1,3 +1,21 @@
+<?php
+include_once("config.php");
+
+if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
+    $user = $_SESSION['logged_in'];
+    $sql = "SELECT username, picture FROM User WHERE username='$user' LIMIT 1";
+    $rs = $con->query($sql);
+    $row = $rs->fetch_assoc();
+
+    if (!empty($row['picture'])) {
+        $pic = $row['picture'];
+    } else {
+        $pic = 'default.jpg';
+    }
+    $username = $row['username'];
+}
+?>
+
 <nav class="navbar navbar-light bg-light nav-split shadow-sm p-3 mb-5 bg-white rounded">
     <div class="show-hide">
         <i id="hi" class="fas fa-bars fa-2x"></i>
@@ -21,7 +39,7 @@
 
         if (isset($_SESSION['logged_in'])) {
             echo '
-            <a class="nav-items hide" href="/invit.io/profile.php">Profile</a>
+            <a class="nav-items hide" href="/invit.io/profile.php">Profile (' . $username . '</a>
             <a class="nav-items hide" href="/invit.io/settings.php">Settings</a>
             <a class="nav-items hide" href="/invit.io/sign-out.php">Sign Out</a>
             ';
@@ -37,21 +55,7 @@
     <!-- PROFILE, SETTINGS, AND LOGOUT -->
     <div class="grid-end">
         <?php
-        include_once("config.php");
-        // echo realpath('config.php');
-
-        if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
-            $username = $_SESSION['logged_in'];
-            $sql = "SELECT picture FROM User WHERE username='$username' LIMIT 1";
-            $rs = $con->query($sql);
-            $row = $rs->fetch_assoc();
-
-            if (!empty($row['picture'])) {
-                $pic = $row['picture'];
-            } else {
-                $pic = 'default.jpg';
-            }
-        }
+        
 
 
         if (isset($_SESSION['logged_in'])) {

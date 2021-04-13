@@ -100,7 +100,7 @@ else {
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Date</label>
 				<div class="col-sm-10">
-					<input id="date" class="form-control" type="date" value="2021-12-24" placeholder="2021-12-24" value="<?php echo $date ?>">
+					<input id="date" class="form-control" type="date" placeholder="2021-12-24" value="<?php echo $date ?>">
 					<span class="error_message" id="err_date"></span>
 				</div>
 			</div>
@@ -108,7 +108,7 @@ else {
 				<label class="col-sm-2 col-form-label">Time</label>
 
 				<div class="col-sm-10">
-					<input id="time" class="form-control" type="time" value="18:00:00" placeholder="18:00:00" value="<?php echo $time ?>">
+					<input id="time" class="form-control" type="time" placeholder="18:00:00" value="<?php echo $time ?>">
 					<span class="error_message" id="err_time"></span>
 				</div>
 			</div>

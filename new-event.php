@@ -26,7 +26,8 @@ if ($stmt->execute()) {
 else {
 	$error = mysqli_error($con);
 }
-mysqli_close($con);
+// mysqli_close($con);
+// $con->close();
 }
 
 ?>

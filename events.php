@@ -51,17 +51,17 @@ session_start();
 			<h2>All Events</h2>
 
 			<!-- SORT OPTIONS -->
-			<form>
+			<!-- <form>
 			<div class="btn-group btn-group-toggle" data-toggle="buttons">
 				<label class="btn btn-secondary active">
 					<input type="radio" name="options" id="newest" onclick="test1()"> Newest
 				</label>
 				<label class="btn btn-secondary">
 					<input type="radio" name="options" id="oldest" onclick="test2()"> Oldest
-				</label>
-			</div>
+				</label> -->
 		</div>
-		</form>
+		<!-- </div>
+		</form> -->
 
 		<!-- ALL EVENTS -->
 		<?php 

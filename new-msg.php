@@ -45,7 +45,7 @@ if (isset($_POST['send-msg'])) {
     <meta name="author" content="quyen huynh, alex johnson">
 
     <?php include("styles.html") ?>
-    <link rel="stylesheet" href="/invit.io/css/messages.css">
+    <link rel="stylesheet" href="css/messages.css">
 
     <title>invit.io</title>
 </head>

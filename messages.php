@@ -15,8 +15,8 @@ if (!isset($_SESSION['logged_in'])) {
 	<meta name="author" content="quyen huynh, alex johnson">
 
 	<?php include("styles.html") ?>
-	<link rel="stylesheet" href="/invit.io/css/messages.css">
-	<!-- <link rel="stylesheet" href="/invit.io/css/test.css"> -->
+	<link rel="stylesheet" href="css/messages.css">
+	<!-- <link rel="stylesheet" href="css/test.css"> -->
 
 	<title>invit.io</title>
 </head>
@@ -72,8 +72,6 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 		<div class='cur-msg'>
 			<div class='header-row'>
-				
-
 				<?php
 				if (!empty($_GET)) {
 					$sql = "SELECT * FROM Msg WHERE msg_id=?";

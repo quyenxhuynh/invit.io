@@ -7,5 +7,5 @@ include('base.php');
 ?>
 
 <div class="container">
-    Successfully logged out. <a href="/invit.io/base.php">Go home.</a>
+    Successfully logged out. <a href="base.php">Go home.</a>
 </div>

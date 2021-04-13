@@ -9,7 +9,7 @@
 	<meta name="author" content="quyen huynh, alex johnson">
 
 	<?php include("styles.html") ?>
-	<link rel="stylesheet" href="/invit.io/css/profile.css">
+	<link rel="stylesheet" href="css/profile.css">
 
 	<title>invit.io</title>
 </head>
@@ -55,9 +55,9 @@
 		<div class="header-row">
 			<?php
 			if (isset($picture) && !empty($picture)) {
-				echo '<img src="/invit.io/upload/' . $picture . '" alt="profile picture" class="profile-pic" width=100px>';
+				echo '<img src="upload/' . $picture . '" alt="profile picture" class="profile-pic" width=100px>';
 			} else {
-				echo '<img src="/invit.io/upload/default.jpg" alt="profile picture" class="profile-pic" width=100px>';
+				echo '<img src="upload/default.jpg" alt="profile picture" class="profile-pic" width=100px>';
 			}
 
 			?>

@@ -4,6 +4,8 @@ if (isset($_SESSION['logged_in'])) {
 	header('Location: base.php');
 }
 
+include_once("./config.php");
+
 if (isset($_POST['sign-up'])) {
 	$sql = "SELECT email FROM User WHERE email = ?";
 	$stmt = $con->prepare($sql);
@@ -88,7 +90,7 @@ if (isset($_POST['sign-up'])) {
 		?>
 		<h2>Create a New Account</h2>
 		<br>
-		<form onsubmit="return cookies()" method="post">
+		<form method="post">
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Username</label>
 				<div class="col-sm-10">
@@ -115,16 +117,12 @@ if (isset($_POST['sign-up'])) {
 				</div>
 			</div>
 
-			<button name="sign-up" id="sign-up" class="btn-blue-muted float-right px-4" onsubmit="return cookies()" type="submit">Sign Up</button>
+			<button name="sign-up" id="sign-up" class="btn-blue-muted float-right px-4" type="submit">Sign Up</button>
 		</form>
 	</div>
 
 	<?php include('js.html') ?>
 	<script>
-		function cookies(){
-			var user = document.getElementById("username");
-			document.cookie = "username=" + user.value;
-		}
 		user.onkeyup = function() {
 			if (user.value.length > 150) {
 				user.setCustomValidity("Username too long!")

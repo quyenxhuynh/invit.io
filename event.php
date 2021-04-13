@@ -5,13 +5,6 @@ session_start();
 <!doctype html>
 <html lang="en">
 
-<script>
-	// https://www.sitepoint.com/get-url-parameters-with-javascript/
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-	const event_id = urlParams.get('event_id');
-	document.cookie = "current_event_id=" + event_id;
-</script>
 
 <head>
 	<meta charset="utf-8">

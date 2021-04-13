@@ -12,27 +12,30 @@ if (isset($_POST['send-msg'])) {
     $stmt->bind_param('s', $_POST['username']);
     $stmt->execute();
     $rs = $stmt->get_result();
+
     if (!$rs) {
         echo mysqli_error($con);
     }
     if (mysqli_num_rows($rs) < 1) {
-        $error = "Username doesn't exist";
-    } 
-    else {
+        $_SESSION['bad_alert'] = "This user doesn't exist.";
+    } else if ($_SESSION['logged_in'] == $_POST['username']) {
+        $_SESSION['bad_alert'] = "You can't send a message to yourself.";
+    } else {
+        $row = $rs->fetch_assoc();
+        $username = $row['username'];
         $sql = "INSERT INTO Msg (from_user, to_user, msg_content)
 			VALUES
 			(?, ?, ?)";
         $stmt = $con->prepare($sql);
-        $stmt->bind_param('sss', $_SESSION['logged_in'], $_POST['username'], $_POST['content']);
+        $stmt->bind_param('sss', $_SESSION['logged_in'], $username, $_POST['content']);
         if ($stmt->execute()) {
-            $error = "";
+            $_SESSION['good_alert'] = "Message sent!";
             header("Location: messages.php");
         }
     }
 }
 ?>
 
-<!-- BASE TEMPLATE TO C/P TO NEW PAGES -->
 <!doctype html>
 <html lang="en">
 
@@ -51,11 +54,19 @@ if (isset($_POST['send-msg'])) {
     <?php include('navbar.php') ?>
 
     <div class="container">
+        <?php
+        if (isset($_SESSION['bad_alert']) && !empty($_SESSION['bad_alert'])) {
+            echo '<div class="alert alert-danger" role="alert">' .
+                $_SESSION['bad_alert'] .
+                '</div>';
+        }
+        unset($_SESSION['bad_alert']);
+        ?>
         <form method="post">
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Recipient</label>
                 <div class="col-sm-10">
-                    <input id="username" name="username" class="form-control" type="text" placeholder="johndoe" required>
+                    <input id="username" name="username" class="form-control" type="text" placeholder="johndoe" value="<?php if (isset($_GET['user']) && !empty($_GET['user'])) echo $_GET['user']; ?>" required>
                     <span style="color: red"><?php if (!empty($error)) echo $error; ?></span>
                 </div>
 

@@ -63,10 +63,11 @@ $RECYCLE.BIN/
 *.msp
 
 # Windows shortcuts
-*.lnk
+*.last_namek
 
 # End of https://www.toptal.com/developers/gitignore/api/vscode,macos,windows
 
 test.php
+test2.php
 css/test.css
 config.php

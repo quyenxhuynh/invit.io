@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['logged_in'])) {
+	header('Location: sign-in.php');
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -6,97 +14,113 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="quyen huynh, alex johnson">
 
-	<?php include('styles.html') ?>
+	<?php include("styles.html") ?>
 	<link rel="stylesheet" href="css/messages.css">
+	<!-- <link rel="stylesheet" href="css/test.css"> -->
 
 	<title>invit.io</title>
 </head>
 
 <body>
-    <?php include('navbar.html') ?>
-    
-    <!-- messages page that displays contacts and the current conversation -->
+	<?php include('navbar.php');
+	if (isset($_SESSION['good_alert']) && !empty($_SESSION['good_alert'])) {
+		echo '<div class="alert alert-success mx-4" role="alert">' .
+			$_SESSION['good_alert'] .
+			'</div>';
+	}
+	unset($_SESSION['good_alert']);
 
-	<div class="row">
-		<div class="col">
-			<div class="col">
-				<div class="box" onClick="changeColor(this)">
-					<p style="">Jane Doe</p>
-					<p style="font-size: 13px;">Preview Message</p>
-				</div>
-			</div>
-			<div class="col">
-				<div class="box" onClick="changeColor(this)">
-					<p style="">John Doe</p>
-					<p style="font-size: 13px;">Preview Message</p>
-				</div>
-			</div>
-			<div class="col">
-				<div class="box" onClick="changeColor(this)">
-					<p style="">Bob Doe</p>
-					<p style="font-size: 13px;">Preview Message</p>
-				</div>
-			</div>
-			<div class="col">
-				<div class="box" onClick="changeColor(this)">
-					<p style="">Alex Doe</p>
-					<p style="font-size: 13px;">Preview Message</p>
-				</div>
-			</div>
-			<div class="col">
-				<div class="box" onClick="changeColor(this)">
-					<p style="">Quin Doe</p>
-					<p style="font-size: 13px;">Preview Message</p>
-				</div>
-			</div>
-		</div>
-		<div class="col-9">
-			<div class="box2">
-				<img style="display:inline-block;" src="media/profile-picture.jpg" class="profile-pic3" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" alt="">
-				<p style="display:inline-block; font-weight: bold; padding: 20px;">Jane Doe</p>
-			</div>
-			<br></br>
-			<div class="messages">
-				<p>Hello, this is a test message </p>
-			</div>
-			<br></br>
-			<div style="float: right;" class="messages">
-				<p>Hellow, this is a test message</p>
-			</div>
-			<div class="input-group">
-				<textarea class="form-control custom-control" rows="3" style="resize:none"></textarea>
-				<span class="input-group-addon btn btn-primary">Send</span>
-			</div>
-		</div>
+	if (isset($_SESSION['bad_alert']) && !empty($_SESSION['bad_alert'])) {
+		echo '<div class="alert alert-danger mx-4" role="alert">' .
+			$_SESSION['bad_alert'] .
+			'</div>';
+	}
+	unset($_SESSION['bad_alert']);
+	?>
 
-		<?php include('js.html') ?>
+	
+	<div class="border">
+		<div class='sidebar'>
+			<div class='search'>
+				<a href="new-msg.php" class='btn-blue-muted'>+ New Message</a>
+			</div>
+			<div class='msg-prev'>
+				<?php
+				$sql = "SELECT * FROM Msg WHERE to_user = ? ORDER BY time DESC LIMIT 15";
+				$stmt = $con->prepare($sql);
+				$stmt->bind_param('s', $_SESSION['logged_in']);
+				$stmt->execute();
+				$rs = $stmt->get_result();
 
-		<script>
-          // Source:
-           /* 
-           Title: setting-background-color-of-div-on-click
-           Author: Julia Shestakova
-           Date: 3/15
-           Code Version: Javascript
-           Avalability: https://stackoverflow.com/questions/31896819/setting-background-color-of-div-on-click/31897055
-           */
-            
-            // changes the background to gray when it is clicked
-
-			var divItems = document.getElementsByClassName("box");
-
-			function changeColor(item) {
-				this.clear();
-				item.style.backgroundColor = 'gray';
-			}
-
-			function clear() {
-				for (var i = 0; i < divItems.length; i++) {
-					var item = divItems[i];
-					item.style.backgroundColor = 'white';
+				if ($rs->num_rows > 0) {
+					$i = 0;
+					while ($row = $rs->fetch_assoc()) {
+						echo '<h6><a href="messages.php?id=' . $row['msg_id'] . '">';
+						echo $row['from_user'] . "<br>";
+						echo '<div class="msg-preview">';
+						echo substr($row['msg_content'], 0, min(strlen($row['msg_content']), 32));
+						echo '</div>';
+						echo '</a></h6>';
+						if ($i != $rs->num_rows - 1) {
+							echo '<div class="hl"></div>';
+						}
+						$i += 1;
+					}
 				}
-			}
-		</script>
+				?>
+			</div>
+		</div>
+		<div class='cur-msg'>
+			<div class='header-row'>
+				<?php
+				if (!empty($_GET)) {
+					$sql = "SELECT * FROM Msg WHERE msg_id=?";
+					$stmt = $con->prepare($sql);
+					$num = (int)$_GET['id'];
+					$stmt->bind_param('i', $num);
+					$stmt->execute();
+					$rs = $stmt->get_result();
+					if(mysqli_num_rows($rs) > 0){
+						$row = $rs->fetch_assoc();
+
+						$otherUser = $row['from_user'];
+						$msgContent = $row['msg_content'];
+	
+						$sql = "SELECT username,picture FROM User WHERE username=?";
+						$stmt = $con->prepare($sql);
+						$stmt->bind_param('s', $otherUser);
+						$stmt->execute();
+						$rs = $stmt->get_result();
+						$row = $rs->fetch_assoc();
+						
+						$profPic = $row['picture'];
+						$otherUser = $row['username'];
+	
+						if (!empty($profPic)){
+							echo '<div class="row m-2"><img src="upload/' . $profPic . '" class="profile-pic" width=100px>';
+						}
+						else {
+							echo '<div class="row m-2"><img src="upload/default.jpg" class="profile-pic" width=100px>';
+						}
+						
+	
+						echo "<h3 class='m-2'>@" . $otherUser . '</h3></div>';
+						echo "<div><a href='new-msg.php?user=" . $otherUser . "' class='btn-blue-muted-outline m-1'>Reply</a>";
+						echo "<a href='del-msg.php?mid=" . $_GET['id'] . "' class='btn-red-muted m-1'>Delete</a></div>";
+						echo '</div>';
+						echo "<div class='msg-content'>";
+						echo $msgContent;
+						echo '</div>';
+					}
+					
+				}
+				?>
+			</div>
+
+		</div>
+	</div>
+
+	<?php include('js.html') ?>
 </body>
 
 </html>

@@ -24,11 +24,7 @@ if (!isset($_SESSION['logged_in'])) {
 	<?php include('navbar.php') ?>
 
 	<div class="container">
-		<?php
-		if (isset($_SESSION['logged_in'])) {
-			echo 'Welcome back, ' . $_SESSION['logged_in'];
-		}
-		?>
+		This page doesn't exist!
 	</div>
 
 	<?php include('js.html') ?>

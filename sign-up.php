@@ -59,8 +59,8 @@ if (isset($_POST['sign-up'])) {
 		}
 	}
 	mysqli_close($con);
-	include_once('auth-functions.php');
-	$error = register($_POST['username'], $_POST['email'], $_POST['password1'], $_POST['password2']);
+	// include_once('auth-functions.php');
+	// $error = register($_POST['username'], $_POST['email'], $_POST['password1'], $_POST['password2']);
 }
 }
 ?>

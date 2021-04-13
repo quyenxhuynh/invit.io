@@ -22,8 +22,23 @@ if (!isset($_SESSION['logged_in'])) {
 </head>
 
 <body>
-	<?php include('navbar.php') ?>
+	<?php include('navbar.php');
+	if (isset($_SESSION['good_alert']) && !empty($_SESSION['good_alert'])) {
+		echo '<div class="alert alert-success mx-4" role="alert">' .
+			$_SESSION['good_alert'] .
+			'</div>';
+	}
+	unset($_SESSION['good_alert']);
 
+	if (isset($_SESSION['bad_alert']) && !empty($_SESSION['bad_alert'])) {
+		echo '<div class="alert alert-danger mx-4" role="alert">' .
+			$_SESSION['bad_alert'] .
+			'</div>';
+	}
+	unset($_SESSION['bad_alert']);
+	?>
+
+	
 	<div class="border">
 		<div class='sidebar'>
 			<div class='search'>
@@ -41,12 +56,12 @@ if (!isset($_SESSION['logged_in'])) {
 					$i = 0;
 					while ($row = $rs->fetch_assoc()) {
 						echo '<h6><a href="messages.php?id=' . $row['msg_id'] . '">';
-							echo $row['from_user'] . "<br>";
-							echo '<div class="msg-preview">';
-							echo substr($row['msg_content'], 0, min(strlen($row['msg_content']), 32));
-							echo '</div>';
-							echo '</a></h6>';
-						if ($i != $rs->num_rows-1) {
+						echo $row['from_user'] . "<br>";
+						echo '<div class="msg-preview">';
+						echo substr($row['msg_content'], 0, min(strlen($row['msg_content']), 32));
+						echo '</div>';
+						echo '</a></h6>';
+						if ($i != $rs->num_rows - 1) {
 							echo '<div class="hl"></div>';
 						}
 						$i += 1;
@@ -57,8 +72,6 @@ if (!isset($_SESSION['logged_in'])) {
 		</div>
 		<div class='cur-msg'>
 			<div class='header-row'>
-				<img src="upload/default.jpg" class="profile-pic" width=100px>
-				
 				<?php
 				if (!empty($_GET)) {
 					$sql = "SELECT * FROM Msg WHERE msg_id=?";
@@ -67,16 +80,43 @@ if (!isset($_SESSION['logged_in'])) {
 					$stmt->bind_param('i', $num);
 					$stmt->execute();
 					$rs = $stmt->get_result();
-					$row = $rs->fetch_assoc();
+					if(mysqli_num_rows($rs) > 0){
+						$row = $rs->fetch_assoc();
 
-					echo "<h3 class='m-2'>" . $row['from_user'] . '</h3>';
-					echo '</div>';
-					echo "<div class='msg-content'>";
-					echo $row['msg_content'];
-					echo '</div>';
+						$otherUser = $row['from_user'];
+						$msgContent = $row['msg_content'];
+	
+						$sql = "SELECT username,picture FROM User WHERE username=?";
+						$stmt = $con->prepare($sql);
+						$stmt->bind_param('s', $otherUser);
+						$stmt->execute();
+						$rs = $stmt->get_result();
+						$row = $rs->fetch_assoc();
+						
+						$profPic = $row['picture'];
+						$otherUser = $row['username'];
+	
+						if (!empty($profPic)){
+							echo '<div class="row m-2"><img src="/invit.io/upload/' . $profPic . '" class="profile-pic" width=100px>';
+						}
+						else {
+							echo '<div class="row m-2"><img src="/invit.io/upload/default.jpg" class="profile-pic" width=100px>';
+						}
+						
+	
+						echo "<h3 class='m-2'>@" . $otherUser . '</h3></div>';
+						echo "<div><a href='/invit.io/new-msg.php?user=" . $otherUser . "' class='btn-blue-muted-outline m-1'>Reply</a>";
+						echo "<a href='/invit.io/del-msg.php?mid=" . $_GET['id'] . "' class='btn-red-muted m-1'>Delete</a></div>";
+						echo '</div>';
+						echo "<div class='msg-content'>";
+						echo $msgContent;
+						echo '</div>';
+					}
+					
 				}
 				?>
 			</div>
+
 		</div>
 	</div>
 

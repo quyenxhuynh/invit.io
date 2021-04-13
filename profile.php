@@ -167,7 +167,7 @@
 	</div>
 
 	<?php include('js.html') ?>
-	<script src="/invit.io/js/event.js"></script>
+	<script src="js/event.js"></script>
 </body>
 
 </html>

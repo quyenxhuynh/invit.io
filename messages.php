@@ -97,16 +97,16 @@ if (!isset($_SESSION['logged_in'])) {
 						$otherUser = $row['username'];
 	
 						if (!empty($profPic)){
-							echo '<div class="row m-2"><img src="/invit.io/upload/' . $profPic . '" class="profile-pic" width=100px>';
+							echo '<div class="row m-2"><img src="upload/' . $profPic . '" class="profile-pic" width=100px>';
 						}
 						else {
-							echo '<div class="row m-2"><img src="/invit.io/upload/default.jpg" class="profile-pic" width=100px>';
+							echo '<div class="row m-2"><img src="upload/default.jpg" class="profile-pic" width=100px>';
 						}
 						
 	
 						echo "<h3 class='m-2'>@" . $otherUser . '</h3></div>';
-						echo "<div><a href='/invit.io/new-msg.php?user=" . $otherUser . "' class='btn-blue-muted-outline m-1'>Reply</a>";
-						echo "<a href='/invit.io/del-msg.php?mid=" . $_GET['id'] . "' class='btn-red-muted m-1'>Delete</a></div>";
+						echo "<div><a href='new-msg.php?user=" . $otherUser . "' class='btn-blue-muted-outline m-1'>Reply</a>";
+						echo "<a href='del-msg.php?mid=" . $_GET['id'] . "' class='btn-red-muted m-1'>Delete</a></div>";
 						echo '</div>';
 						echo "<div class='msg-content'>";
 						echo $msgContent;

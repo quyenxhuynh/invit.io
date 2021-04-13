@@ -39,9 +39,9 @@ if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
 
         if (isset($_SESSION['logged_in'])) {
             echo '
-            <a class="nav-items hide" href="/invit.io/profile.php">Profile (' . $username . '</a>
-            <a class="nav-items hide" href="/invit.io/settings.php">Settings</a>
-            <a class="nav-items hide" href="/invit.io/sign-out.php">Sign Out</a>
+            <a class="nav-items hide" href="profile.php">Profile (' . $username . '</a>
+            <a class="nav-items hide" href="settings.php">Settings</a>
+            <a class="nav-items hide" href="sign-out.php">Sign Out</a>
             ';
         } else {
             echo '

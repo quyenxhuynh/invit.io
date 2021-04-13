@@ -41,7 +41,7 @@
     grid-column: 1 / 3;
     border: 1px solid black;
     grid-template-columns: 4fr 1fr;
-    grid-template-rows: subgrid;
+    grid-template-rows: 1fr;
 }
 
 .left-event {

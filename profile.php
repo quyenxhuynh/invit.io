@@ -99,7 +99,7 @@
 						<div class='event-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, et, quam eius quaerat praesentium consectetur illo quas, totam nisi error autem. Nisi, veniam.</div>
 					</div>
 					<div class='right-event'>
-						<div class='my-2'>
+						<div class='my-2 right'>
 							<a href='' class='btn-yes'>Yes</a>
 							<a href='' class='btn-no'>No</a>
 							<a href='' class='btn-maybe'>Maybe</a>
@@ -137,7 +137,7 @@
 					<div class='right-event'>";
 						if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
 							if ($_SESSION['logged_in'] != $username) {
-								echo "<div class='my-2'>
+								echo "<div class='my-2 right'>
 						<a href='' class='btn-yes'>Yes</a>
 						<a href='' class='btn-no'>No</a>
 						<a href='' class='btn-maybe'>Maybe</a>

@@ -30,7 +30,7 @@ session_start();
 		}
 		?>
 
-		Feel free to send us some feedback <a href="http://localhost:4200/">here</a>
+		Feel free to send us some feedback <a href="https://invitio-angular.uk.r.appspot.com/">here</a>
 	</div>
 
 	<?php include('js.html') ?>

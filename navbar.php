@@ -24,7 +24,7 @@ if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
 
     <!-- LOGO AND BRAND -->
     <div>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="base.php">
             <i class="far fa-envelope"></i> invit.io
         </a>
     </div>

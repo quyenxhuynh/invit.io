@@ -45,6 +45,9 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
       case '/delete.php':
             require 'delete.php';
             break;
+      case '/delete-msg.php':
+            require 'delete-msg.php';
+            break;
    default:
       http_response_code(404);
       exit('Not Found');

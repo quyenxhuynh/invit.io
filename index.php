@@ -48,6 +48,9 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
       case '/delete-msg.php':
             require 'delete-msg.php';
             break;
+      case '/ngphp-post.php':
+            require '/ngphp-post.php';
+            break;
    default:
       http_response_code(404);
       exit('Not Found');

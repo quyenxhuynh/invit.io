@@ -1,9 +1,9 @@
-<?php 
+<?php
 session_start();
 
-if (!isset($_SESSION['logged_in'])) {
-    header('Location: sign-in.php');
-}
+// if (!isset($_SESSION['logged_in'])) {
+//     header('Location: sign-in.php');
+// }
 ?>
 
 <!-- BASE TEMPLATE TO C/P TO NEW PAGES -->
@@ -29,6 +29,8 @@ if (!isset($_SESSION['logged_in'])) {
 			echo 'Welcome back, ' . $_SESSION['logged_in'];
 		}
 		?>
+
+		Feel free to send us some feedback <a href="http://localhost:4200/">here</a>
 	</div>
 
 	<?php include('js.html') ?>

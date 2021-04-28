@@ -6,23 +6,12 @@
 
 
 
-runtime: python27 #php73 #
-api_version: 1
-threadsafe: true
+runtime: php73
 
 handlers:
-- url: /
-  static_files: dist/angular/index.html
-  upload: dist/angular/index.html
-
-- url: /
-  static_dir: dist/angular
-
 - url: /css
   static_dir: css
 - url: /media
   static_dir: media
-- url: /upload
-  static_dir: upload
 - url: /js
   static_dir: js

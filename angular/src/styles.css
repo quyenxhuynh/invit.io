@@ -1,0 +1,138 @@
+/* You can add global styles to this file, and also import other style files */
+h1,h2{
+    color: #6296e9;
+}
+
+h3,h4,h5,h6 {
+    color: black;
+}
+
+.nav-split {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+}
+
+.nav-items {
+    margin: 0 25px;
+}
+
+.grid-end {
+    justify-self: end;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: #71A7FF;
+    text-decoration: none;
+}
+
+.highlighted-link {
+    color: #71A7FF;
+}
+
+.highlighted-link:hover {
+    color: #6296e9;
+}
+
+.btn-blue-muted {
+    background-color: #71A7FF;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 12px;
+    border: 0;
+}
+
+.btn-blue-muted:hover {
+    background-color: #6296e9;
+    color: white;
+}
+
+.btn-blue-muted-outline {
+    border: 1px solid #71A7FF;
+    background-color: white;
+    color: #6296e9;
+    border-radius: 5px;
+    padding: 10px 12px;
+}
+
+.btn-blue-muted-outline:hover {
+    background-color: #eff5ff;
+    /* color: white; */
+    border: 1px solid #71A7FF;
+}
+
+.btn-red-muted {
+    background-color: #ff8271;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 12px;
+    border: 0;
+}
+
+.btn-red-muted:hover {
+    background-color: #ec6452;
+    color: white;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.min-width-content {
+    min-width: fit-content;
+}
+
+.center-align {
+    text-align: center;
+}
+
+div {
+    vertical-align: top
+}
+#hi, #bye {
+    display: none;
+}
+
+#nav {
+    display: block;
+}
+
+.show-hide {
+    position:absolute;
+    right:0;
+    top:0
+}
+
+.hide {
+    display: none;
+}
+
+@media only screen and (max-width: 1000px) {
+    .nav-split, .dropdown-menu, #nav {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    i {
+        margin: 1rem;
+    }
+
+    #hi {
+        display: show;
+    }
+
+    #bye, #nav, #new-event-btn, #prof-dropdown, .dropdown-item, .min-width-content {
+        display: none;
+        min-width: none;
+    }
+
+    .hide {
+        display: block;
+    }
+}

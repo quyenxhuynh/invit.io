@@ -11,7 +11,7 @@ export class ReportService {
   constructor(private http: HttpClient) { }
 
   sendRequest(data: any): Observable<any> {
-    return this.http.post('http://localhost/test/ngphp-post.php', data);
+    return this.http.post('http://invitio-s21.appspot.com/ngphp-post.php', data);
   }
 
   sendReport(data: any): Observable<Report> {

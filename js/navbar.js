@@ -16,7 +16,7 @@ hide.onclick = () => {
 }
 
 function sizing() {
-    if (window.innerWidth >= 1000) { // desktop
+    if (window.innerWidth > 1000) { // desktop
         show.style.display = "none";
         hide.style.display = "none";
         nav.style.display = "block";

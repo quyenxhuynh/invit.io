@@ -40,7 +40,7 @@
     display: grid;
     grid-column: 1 / 3;
     border: 1px solid black;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr;
 }
 
@@ -53,6 +53,10 @@
 .right-event {
     display: grid;
     grid-column: 2 / 3;
+}
+
+.heart-toggle, .share-event {
+    margin: .25rem;
 }
 
 .btn-no {
@@ -117,12 +121,20 @@
 
 .right {
     justify-self: end;
+    /* display: flex;
+    flex-direction: column; */
+    text-align: center;
 }
 
 
 @media only screen and (max-width:1000px) {
-    .content {
+    .content, .right {
         display: flex;
         flex-direction: column;
+    }
+
+    .heart-toggle, .share-event, span {
+        display: inline-block;
+        margin: 0;
     }
 }

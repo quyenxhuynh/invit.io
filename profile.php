@@ -18,7 +18,6 @@
 	<?php include('navbar.php') ?>
 
 	<div class="container">
-
 		<?php
 		if (isset($_GET['username']) && !empty($_GET['username'])) {
 			$username = $_GET['username'];
@@ -81,7 +80,7 @@
 
 		<div class='content mt-2'>
 			<div id="about me">
-				<h4>About Me</h4>
+				<h4 id="abt-me">About Me</h4>
 				<div class='rounded-outline'>
 					<?php
 					if (!empty($bio)) {
@@ -108,10 +107,10 @@
 							<a href='' class='btn-blue-muted-outline btn-invite'>Message Host</a>
 						</div>
 						<div class='right'>
-							<span class='heart-toggle mx-1'>
+							<span class='heart-toggle'>
 								<i class='event-icon far fa-heart'></i>
 							</span>
-							<span class='share-event mx-1'>
+							<span class='share-event'>
 								<i class='event-icon fas fa-share'></i>
 							</span>
 						</div>
@@ -150,10 +149,10 @@
 
 						echo "
 						<div class='right'>
-							<span class='heart-toggle mx-1'>
+							<span class='heart-toggle'>
 								<i class='event-icon far fa-heart'></i>
 							</span>
-							<span class='share-event mx-1'>
+							<span class='share-event'>
 								<i class='event-icon fas fa-share'></i>
 							</span>
 						</div>
@@ -162,8 +161,11 @@
 					}
 				}
 				?>
+
+				
 			</div>
 		</div>
+		
 	</div>
 
 	<?php include('js.html') ?>

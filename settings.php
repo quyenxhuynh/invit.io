@@ -31,16 +31,17 @@ if (isset($_POST['update-settings'])) {
         }
 
 
-        $sql = "UPDATE User SET first_name=?, last_name=?, email=? WHERE username=?";
+        $sql = "UPDATE User SET first_name=?, last_name=?, email=?, bio=? WHERE username=?";
         $stmt = $con->prepare($sql);
         $first_name = !empty($_POST['first_name']) ? $_POST['first_name'] : $_SESSION['first_name'];
         $last_name = !empty($_POST['last_name']) ? $_POST['last_name'] : $_SESSION['last_name'];
         $email = !empty($_POST['email']) ? $_POST['email'] : $_SESSION['email'];
-        $stmt->bind_param('ssss', $first_name, $last_name, $email, $username);
-        // $stmt->execute();
+        $bio = !empty($_POST['bio']) ? $_POST['bio'] : $_SESSION['bio'];
+        $stmt->bind_param('sssss', $first_name, $last_name, $email, $bio, $username);
+
 
         if ($stmt->execute()) {
-            // $_SESSION['good_alert'] = "Settings saved!";
+            $_SESSION['good_alert'] = "Settings saved!";
         } else {
             echo mysqli_error($con);
         }
@@ -103,6 +104,12 @@ if (isset($_POST['update-settings'])) {
                 <label class="col-sm-2 col-form-label">Email Address</label>
                 <div class="col-sm-10">
                     <input name="email" class="form-control" type="email" placeholder="<?php echo $_SESSION['email'] ?>">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Bio</label>
+                <div class="col-sm-10">
+                    <input name="bio" class="form-control" type="text" placeholder="<?php echo $_SESSION['bio'] ?>">
                 </div>
             </div>
             <button name="update-settings" class="btn-blue-muted float-right px-4" type="submit">Save Settings</button>

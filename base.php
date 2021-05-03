@@ -30,6 +30,7 @@ session_start();
 		}
 		?>
 
+
 		Feel free to send us some feedback <a style="color: #71A7FF;" href="https://invitio-angular.uk.r.appspot.com/">here</a>.
 	</div>
 

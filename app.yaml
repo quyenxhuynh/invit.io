@@ -13,7 +13,5 @@ handlers:
   static_dir: css
 - url: /media
   static_dir: media
-- url: /upload
-  static_dir: upload
 - url: /js
   static_dir: js

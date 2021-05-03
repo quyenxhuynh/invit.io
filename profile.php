@@ -47,6 +47,16 @@
 		$email = $row['email'];
 		$picture = $row['picture'];
 		$bio = $row['bio'];
+
+		$sql = "SELECT * FROM invitations WHERE guest='$username' ORDER BY attending ASC";
+		$stmt = $con->prepare($sql);
+		if ($stmt->execute()) {
+			$error = "";
+		}
+		else {
+			$error = mysqli_error($con);
+		}
+		$results = $stmt->get_result();
 		?>
 
 		<div class="header-row">
@@ -91,21 +101,38 @@
 					} ?>
 				</div>
 			</div>
+
 			<div id='invitations'>
-				<h4>Invitations</h4>
-				<div class='event rounded-outline'>
+			<h4>Invitations</h4>
+			<?php 
+			foreach($results as $result)
+				{
+					$yes = '';
+					if($result['attending'] == 'yes'){
+						$yes='yes';
+					}
+					$no = '';
+					if($result['attending'] == 'no'){
+						$no='no';
+					}
+					$maybe = '';
+					if($result['attending'] == 'maybe'){
+						$maybe='maybe';
+					}
+	
+				echo "<div class='event rounded-outline'>
 					<div class='left-event'>
-						<h6>Event Name</h6>
-						<div class='event-description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, et, quam eius quaerat praesentium consectetur illo quas, totam nisi error autem. Nisi, veniam.</div>
+						<h6>".$result['event_name']."</h6>
+						<div class='event-description'>".$result['event_description']."</div>
 					</div>
 					<div class='right-event'>
 						<div class='my-2 right'>
-							<a href='' class='btn-yes'>Yes</a>
-							<a href='' class='btn-no'>No</a>
-							<a href='' class='btn-maybe'>Maybe</a>
+							<a href='set_attending.php?attending=".'yes&event_id='.$result['event_id']."' class='btn-yes".$yes."'>Yes</a>
+							<a href='set_attending.php?attending=".'no&event_id='.$result['event_id']."' class='btn-no".$no."'>No</a>
+							<a href='set_attending.php?attending=".'maybe&event_id='.$result['event_id']."' class='btn-maybe".$maybe."'>Maybe</a>
 						</div>
 						<div class='mb-2 right'>
-							<a href='' class='btn-blue-muted-outline btn-invite'>Message Host</a>
+							<a href='new-msg.php?user=".$result['host']."' class='btn-blue-muted-outline btn-invite'>Message Host</a>
 						</div>
 						<div class='right'>
 							<span class='heart-toggle mx-1'>
@@ -116,12 +143,15 @@
 							</span>
 						</div>
 					</div>
-				</div>
+				</div>";
+				}
+			?>
 			</div>
+			
 
 			<!-- EVENT LOOP 2 HERE -->
 			<?php
-			$sql = "SELECT * FROM Event WHERE organizer='$username' LIMIT 4";
+			$sql = "SELECT * FROM Event WHERE organizer='$username'";
 			$rs = $con->query($sql);
 			?>
 			<div id="events-organized">
@@ -134,6 +164,7 @@
 						<h6>" . $row['event_title'] . "</h6>
 						<div class='event-description'>" . $row['description'] . "</div>
 					</div>
+					<a style='width: fit-content; float:right' id='new-event-btn' class='btn-blue-muted m-2' href='invite.php?event_id=".$row['event_id']."'>Invite</a>
 					<div class='right-event'>";
 						if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
 							if ($_SESSION['logged_in'] != $username) {
@@ -153,7 +184,7 @@
 							<span class='heart-toggle mx-1'>
 								<i class='event-icon far fa-heart'></i>
 							</span>
-							<span class='share-event mx-1'>
+							<span id ='".$row['event_id']."' class='share-event mx-1'>
 								<i class='event-icon fas fa-share'></i>
 							</span>
 						</div>
@@ -167,6 +198,7 @@
 	</div>
 
 	<?php include('js.html') ?>
+	
 	<script src="js/event.js"></script>
 </body>
 

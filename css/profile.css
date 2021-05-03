@@ -69,6 +69,20 @@
     color: rgb(240, 124, 124);
 }
 
+.btn-nono {
+    border: 1px solid rgb(240, 124, 124);
+    background-color: lightblue;
+    color: rgb(240, 124, 124);
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+.btn-nono:hover {
+    border: 1px solid rgb(240, 124, 124);
+    background-color: rgb(255, 218, 218);
+    color: rgb(240, 124, 124);
+}
+
 .btn-yes {
     border: 1px solid rgb(42, 143, 87);
     background-color: white;
@@ -83,6 +97,21 @@
     color:  rgb(42, 143, 87);
 }
 
+.btn-yesyes {
+    border: 1px solid rgb(42, 143, 87);
+    background-color: lightblue;
+    color: rgb(42, 143, 87);
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+.btn-yesyes:hover {
+    border: 1px solid  rgb(42, 143, 87);
+    background-color: rgb(199, 255, 224);
+    color:  rgb(42, 143, 87);
+}
+
+
 .btn-maybe {
     border: 1px solid rgb(211, 193, 113);
     background-color: white;
@@ -92,6 +121,20 @@
 }
 
 .btn-maybe:hover {
+    border: 1px solid  rgb(211, 193, 113);
+    background-color: rgb(255, 245, 200);
+    color:  rgb(211, 193, 113);
+}
+
+.btn-maybemaybe {
+    border: 1px solid rgb(211, 193, 113);
+    background-color: lightblue;
+    color: rgb(211, 193, 113);
+    border-radius: 5px;
+    padding: 2px 5px;
+}
+
+.btn-maybemaybe:hover {
     border: 1px solid  rgb(211, 193, 113);
     background-color: rgb(255, 245, 200);
     color:  rgb(211, 193, 113);

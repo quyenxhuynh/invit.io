@@ -51,8 +51,11 @@
 }
 
 .right-event {
-    display: grid;
     grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 .heart-toggle, .share-event {

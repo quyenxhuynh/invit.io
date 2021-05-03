@@ -159,23 +159,27 @@
 					echo "<h4>Events Organized</h4>";
 					while ($row = $rs->fetch_assoc()) {
 						echo "<div class='event rounded-outline'>
-					<div class='left-event'>
-						<h6>" . $row['event_title'] . "</h6>
-						<div class='event-description'>" . $row['description'] . "</div>
-					</div>
-					<a style='width: fit-content; float:right' id='new-event-btn' class='btn-blue-muted m-2' href='invite.php?event_id=".$row['event_id']."'>Invite</a>
-					<div class='right-event'>";
-						if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
-							if ($_SESSION['logged_in'] != $username) {
-								echo "<div class='my-2 right'>
-						<a href='' class='btn-yes'>Yes</a>
-						<a href='' class='btn-no'>No</a>
-						<a href='' class='btn-maybe'>Maybe</a>
-					</div>
-					<div class='mb-2 right'>
-						<a href='' class='btn-blue-muted-outline btn-invite'>Message Host</a></div>";
+						<div class='left-event'>
+							<h6>" . $row['event_title'] . "</h6>
+							<div class='event-description'>" . $row['description'] . "</div>
+						</div>
+						
+						<div class='right-event'>";
+							if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
+								if ($_SESSION['logged_in'] != $username) {
+									echo "<div class='my-2 right'>
+										<a href='' class='btn-yes'>Yes</a>
+										<a href='' class='btn-no'>No</a>
+										<a href='' class='btn-maybe'>Maybe</a>
+									</div>
+									<div class='mb-2 right'>
+										<a href='' class='btn-blue-muted-outline btn-invite'>Message Host</a></div>";
+								}
+								else {
+									echo "<div class='my-2 right'>
+									<a id='new-event-btn' class='btn-blue-muted' href='invite.php?event_id=".$row['event_id']."'>Invite</a></div>";
+								}
 							}
-						}
 
 
 						echo "

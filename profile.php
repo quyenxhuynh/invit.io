@@ -61,9 +61,9 @@
 		<div class="header-row">
 			<?php
 			if (isset($picture) && !empty($picture)) {
-				echo '<img src="upload/' . $picture . '" alt="profile picture" class="profile-pic" width=100px>';
+				echo '<img src="https://storage.cloud.google.com/invitio-21.appspot.com/upload/' . $picture . '?authuser=2" alt="profile picture" class="profile-pic" width=100px>';
 			} else {
-				echo '<img src="upload/default.jpg" alt="profile picture" class="profile-pic" width=100px>';
+				echo '<img src="https://storage.cloud.google.com/invitio-21.appspot.com/upload/default.jpg?authuser=2" alt="profile picture" class="profile-pic" width=100px>';
 			}
 
 			?>

@@ -1,8 +1,14 @@
+<!-- RESOURCE: https://github.com/googleapis/google-cloud-php/blob/master/AUTHENTICATION.md -->
+
 <?php
 session_start();
 if (!isset($_SESSION['logged_in'])) {
     header('Location: sign-in.php');
 }
+
+require 'vendor/autoload.php';
+
+use Google\Cloud\Storage\StorageClient;
 
 include_once("./config.php");
 if (!isset($_SESSION['set-up'])) {
@@ -25,8 +31,22 @@ if (isset($_POST['update-settings'])) {
             if (in_array($imageFileType, $extensions_arr)) {
                 $query = "UPDATE User SET picture='$name' WHERE username='$username'";
                 mysqli_query($con, $query);
-                move_uploaded_file($_FILES['file']['tmp_name'], "gs://invitio-21/" . $target_dir . $name);
-                // $_SESSION['good_alert'] = 'gs://invitio-21/' . $target_dir . $name;
+
+
+                $storage  = new StorageClient([
+                        'keyFilePath' => 'google-key.json'
+                ]);
+                $file = fopen($_FILES['file']['tmp_name'], 'r');
+                $bucket = $storage->bucket('invitio-21.appspot.com');
+                $object = $bucket->upload($file, [
+                    'name' => $target_dir . $name
+                ]);
+                // move_uploaded_file($_FILES['file']['tmp_name'], 'gs://invitio-21.appspot.com/' . $target_dir . $name);
+                // $bucket->upload(
+                //     fopen($_FILES['file']['tmp_name'], $target_dir . $name, 'r'),
+                //     ['name' => $target_dir . $name]
+                // );
+                // $_SESSION['good_alert'] = "Uploaded " . PHP_EOL . "to gs://" . 'invitio-21.appspot.com/' . $target_dir . $name;
             }
         }
 
@@ -91,25 +111,25 @@ if (isset($_POST['update-settings'])) {
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
-                    <input name="first_name" class="form-control" type="text" placeholder="<?php echo $_SESSION['first_name'] ?>">
+                    <input name="first_name" class="form-control" type="text" placeholder="<?php if (isset($_SESSION['first_name'])) echo $_SESSION['first_name'] ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Last Name</label>
                 <div class="col-sm-10">
-                    <input name="last_name" class="form-control" type="text" placeholder="<?php echo $_SESSION['last_name'] ?>">
+                    <input name="last_name" class="form-control" type="text" placeholder="<?php if (isset($_SESSION['last_name'])) echo $_SESSION['last_name'] ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Email Address</label>
                 <div class="col-sm-10">
-                    <input name="email" class="form-control" type="email" placeholder="<?php echo $_SESSION['email'] ?>">
+                    <input name="email" class="form-control" type="email" placeholder="<?php if (isset($_SESSION['email'])) echo $_SESSION['email'] ?>">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Bio</label>
                 <div class="col-sm-10">
-                    <input name="bio" class="form-control" type="text" placeholder="<?php echo $_SESSION['bio'] ?>">
+                    <input name="bio" class="form-control" type="text" placeholder="<?php if (isset($_SESSION['bio'])) echo $_SESSION['bio'] ?>">
                 </div>
             </div>
             <button name="update-settings" class="btn-blue-muted float-right px-4" type="submit">Save Settings</button>
@@ -117,25 +137,6 @@ if (isset($_POST['update-settings'])) {
     </div>
 
     <?php include('js.html') ?>
-    <script>
-        var user = document.getElementById("username");
-        user.onkeyup = function() {
-            if (user.value.length > 150) {
-                user.setCustomValidity("Username too long!")
-            } else {
-                user.setCustomValidity("");
-            }
-        }
-
-        var pw1 = document.getElementById("password1");
-        var pw2 = document.getElementById("password2");
-
-        pw2.onkeyup = function() {
-            if (pw1.value != pw2.value) {
-                <?php $error = "Passwords don't match"; ?>
-            }
-        }
-    </script>
 </body>
 
 </html>

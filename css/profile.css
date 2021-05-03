@@ -152,6 +152,11 @@
     padding: 2px 5px;
 }
 
+.btn-blue-muted {
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+
 .event-description {
     font-size: 16px;
     display: flex;

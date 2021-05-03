@@ -121,7 +121,7 @@
 	
 				echo "<div class='event rounded-outline'>
 					<div class='left-event'>
-						<h6>".$result['event_name']."</h6>
+					<h6><a href=event.php?event_id=" . $result['event_id'] . ">" . $result['event_name'] . "</a></h6>
 						<div class='event-description'>".$result['event_description']."</div>
 					</div>
 					<div class='right-event'>
@@ -160,7 +160,7 @@
 					while ($row = $rs->fetch_assoc()) {
 						echo "<div class='event rounded-outline'>
 						<div class='left-event'>
-							<h6>" . $row['event_title'] . "</h6>
+							<h6><a href=event.php?event_id=" . $row['event_id'] . ">" . $row['event_title'] . "</a></h6>
 							<div class='event-description'>" . $row['description'] . "</div>
 						</div>
 						

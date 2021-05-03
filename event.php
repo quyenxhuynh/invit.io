@@ -68,7 +68,7 @@ session_start();
 		
 					<div class="right rounded-outline">
 						<div class="row">
-							Organizer: ' . $result['organizer'] . ' <br>
+							Organizer: <a href="profile.php?username=' . $result['organizer'] . '">' . $result['organizer'] . '</a><br>
 							Date: ' . $result['date'] . ' <br>
 							Time ' . $result['time'] . '
 						</div>

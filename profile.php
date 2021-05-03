@@ -177,7 +177,7 @@
 								}
 								else {
 									echo "<div class='my-2 right'>
-									<a id='new-event-btn' class='btn-blue-muted' href='invite.php?event_id=".$row['event_id']."'>Invite</a></div>";
+									<a id='new-event-btn' class='btn-blue-muted btn-invite2' href='invite.php?event_id=".$row['event_id']."'>Invite</a></div>";
 								}
 							}
 

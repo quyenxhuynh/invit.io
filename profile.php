@@ -137,11 +137,8 @@ if (!isset($_GET['username']) && !isset($_SESSION['logged_in'])) {
 						<div class='mb-2 right'>
 							<a href='new-msg.php?user=".$result['host']."' class='btn-blue-muted-outline btn-invite'>Message Host</a>
 						</div>
-<<<<<<< HEAD
-=======
 						<div class='right'>
 						</div>
->>>>>>> 376ee8f166832ec46af546a7de55540c2fe4490a
 					</div>
 				</div>";
 				}
@@ -184,12 +181,9 @@ if (!isset($_GET['username']) && !isset($_SESSION['logged_in'])) {
 
 
 						echo "
-<<<<<<< HEAD
-=======
 						<div class='right'>
 							
 						</div>
->>>>>>> 376ee8f166832ec46af546a7de55540c2fe4490a
 					</div>
 				</div>";
 					}

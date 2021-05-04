@@ -1,5 +1,3 @@
-<!-- show img potential src: https://jsfiddle.net/bootstrapious/8w7a50n2 -->
-
 <?php
 session_start();
 if (!isset($_SESSION['logged_in'])) {
@@ -13,25 +11,25 @@ if (!isset($_SESSION['set-up'])) {
 
 if (isset($_POST['update-settings'])) {
     $username = $_SESSION['logged_in'];
-    
+
     if (empty($error)) {
         if (isset($_FILES['file']['name']) && !empty($_FILES['file']['name'])) {
             $name = $_SESSION['logged_in'] . ".";
             $name = $name . pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
-    
+
             $target_dir = "upload/";
             $target_file = $target_dir . basename($_FILES["file"]["name"]);
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
             $extensions_arr = array("jpg", "jpeg", "png", "gif");
-    
+
             if (in_array($imageFileType, $extensions_arr)) {
                 $query = "UPDATE User SET picture='$name' WHERE username='$username'";
                 mysqli_query($con, $query);
-                move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $name);
-                // $_SESSION['good_alert'] = $_FILES['file']['tmp_name'];
+                move_uploaded_file($_FILES['file']['tmp_name'], "gs://invitio-21/" . $target_dir . $name);
+                // $_SESSION['good_alert'] = 'gs://invitio-21/' . $target_dir . $name;
             }
         }
-        
+
 
         $sql = "UPDATE User SET first_name=?, last_name=?, email=? WHERE username=?";
         $stmt = $con->prepare($sql);
@@ -42,7 +40,7 @@ if (isset($_POST['update-settings'])) {
         // $stmt->execute();
 
         if ($stmt->execute()) {
-            $_SESSION['good_alert'] = "Settings saved!";
+            // $_SESSION['good_alert'] = "Settings saved!";
         } else {
             echo mysqli_error($con);
         }

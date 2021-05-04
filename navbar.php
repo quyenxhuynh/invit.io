@@ -55,9 +55,6 @@ if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
     <!-- PROFILE, SETTINGS, AND LOGOUT -->
     <div class="grid-end">
         <?php
-        
-
-
         if (isset($_SESSION['logged_in'])) {
             echo '
             <a id="new-event-btn" class="btn-blue-muted m-2" href="new-event.php">+ New Event</a>

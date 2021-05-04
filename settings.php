@@ -1,21 +1,13 @@
-<!-- RESOURCE: https://github.com/googleapis/google-cloud-php/blob/master/AUTHENTICATION.md -->
-
-<?php
-session_start();
-if (!isset($_SESSION['logged_in'])) {
-    header('Location: sign-in.php');
+<?php session_start();
+if (!isset($_GET['username']) && !isset($_SESSION['logged_in'])) {
+    header("Location: sign-in.php");
 }
 
 require 'vendor/autoload.php';
-
 use Google\Cloud\Storage\StorageClient;
 
-include_once("./config.php");
-if (!isset($_SESSION['set-up'])) {
-    include('var-setup.php');
-}
-
 if (isset($_POST['update-settings'])) {
+    include_once("config.php");
     $username = $_SESSION['logged_in'];
 
     if (empty($error)) {
@@ -34,7 +26,7 @@ if (isset($_POST['update-settings'])) {
 
 
                 $storage  = new StorageClient([
-                        'keyFilePath' => 'google-key.json'
+                    'keyFilePath' => 'google-key.json'
                 ]);
                 $file = fopen($_FILES['file']['tmp_name'], 'r');
                 $bucket = $storage->bucket('invitio-21.appspot.com');
@@ -68,10 +60,9 @@ if (isset($_POST['update-settings'])) {
 
         include('var-setup.php');
         header('Location: settings.php');
-        exit();
+        // exit();
     }
 }
-
 ?>
 
 <!doctype html>

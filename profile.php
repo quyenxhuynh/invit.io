@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start(); 
+if (!isset($_GET['username']) && !isset($_SESSION['logged_in'])) {
+	header("Location: sign-in.php");
+}
+?>
 
 <!doctype html>
 <html lang="en">

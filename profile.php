@@ -134,14 +134,6 @@
 						<div class='mb-2 right'>
 							<a href='new-msg.php?user=".$result['host']."' class='btn-blue-muted-outline btn-invite'>Message Host</a>
 						</div>
-						<div class='right'>
-							<span class='heart-toggle mx-1'>
-								<i class='event-icon far fa-heart'></i>
-							</span>
-							<span class='share-event mx-1'>
-								<i class='event-icon fas fa-share'></i>
-							</span>
-						</div>
 					</div>
 				</div>";
 				}
@@ -180,14 +172,6 @@
 
 
 						echo "
-						<div class='right'>
-							<span class='heart-toggle mx-1'>
-								<i class='event-icon far fa-heart'></i>
-							</span>
-							<span id ='".$row['event_id']."' class='share-event mx-1'>
-								<i class='event-icon fas fa-share'></i>
-							</span>
-						</div>
 					</div>
 				</div>";
 					}

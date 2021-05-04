@@ -96,14 +96,14 @@ if (!isset($_SESSION['logged_in'])) {
 						$otherUser = $row['username'];
 	
 						if (!empty($profPic)){
-							echo '<div class="row m-2"><img src="upload/' . $profPic . '" class="profile-pic" width=100px>';
+							echo '<div class="row m-2"><img src="https://storage.cloud.google.com/invitio-21.appspot.com/upload/' . $profPic . '?authuser=2" class="profile-pic" width=100px>';
 						}
 						else {
-							echo '<div class="row m-2"><img src="upload/default.jpg" class="profile-pic" width=100px>';
+							echo '<div class="row m-2"><img src="https://storage.cloud.google.com/invitio-21.appspot.com/upload/default.jpg?authuser=2" class="profile-pic" width=100px>';
 						}
 						
 	
-						echo "<h3 class='m-2'>@" . $otherUser . '</h3></div>';
+						echo "<h3 class='m-2'><a href=profile.php?username=" . $otherUser . ">" . "@" . $otherUser . '</a></h3></div>';
 						echo "<div><a href='new-msg.php?user=" . $otherUser . "' class='btn-blue-muted-outline m-1'>Reply</a>";
 						echo "<a href='del-msg.php?mid=" . $_GET['id'] . "' class='btn-red-muted m-1'>Delete</a></div>";
 						echo '</div>';

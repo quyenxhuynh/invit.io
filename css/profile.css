@@ -51,8 +51,11 @@
 }
 
 .right-event {
-    display: grid;
     grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
 .heart-toggle, .share-event {
@@ -147,6 +150,11 @@
 .btn-invite {
     border-radius: 5px;
     padding: 2px 5px;
+}
+
+.btn-invite2 {
+    border-radius: 5px;
+    padding: 5px 8px;
 }
 
 .event-description {

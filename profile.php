@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start(); 
+if (!isset($_GET['username']) && !isset($_SESSION['logged_in'])) {
+	header("Location: sign-in.php");
+}
+?>
 
 <!doctype html>
 <html lang="en">
@@ -61,9 +65,9 @@
 		<div class="header-row">
 			<?php
 			if (isset($picture) && !empty($picture)) {
-				echo '<img src="upload/' . $picture . '" alt="profile picture" class="profile-pic" width=100px>';
+				echo '<img src="https://storage.cloud.google.com/invitio-21.appspot.com/upload/' . $picture . '?authuser=2" alt="profile picture" class="profile-pic" width=100px>';
 			} else {
-				echo '<img src="upload/default.jpg" alt="profile picture" class="profile-pic" width=100px>';
+				echo '<img src="https://storage.cloud.google.com/invitio-21.appspot.com/upload/default.jpg?authuser=2" alt="profile picture" class="profile-pic" width=100px>';
 			}
 
 			?>
@@ -121,7 +125,7 @@
 	
 				echo "<div class='event rounded-outline'>
 					<div class='left-event'>
-						<h6>".$result['event_name']."</h6>
+					<h6><a href=event.php?event_id=" . $result['event_id'] . ">" . $result['event_name'] . "</a></h6>
 						<div class='event-description'>".$result['event_description']."</div>
 					</div>
 					<div class='right-event'>
@@ -136,12 +140,6 @@
 <<<<<<< HEAD
 =======
 						<div class='right'>
-							<span class='heart-toggle'>
-								<i class='event-icon far fa-heart'></i>
-							</span>
-							<span class='share-event'>
-								<i class='event-icon fas fa-share'></i>
-							</span>
 						</div>
 >>>>>>> 376ee8f166832ec46af546a7de55540c2fe4490a
 					</div>
@@ -162,35 +160,34 @@
 					echo "<h4>Events Organized</h4>";
 					while ($row = $rs->fetch_assoc()) {
 						echo "<div class='event rounded-outline'>
-					<div class='left-event'>
-						<h6>" . $row['event_title'] . "</h6>
-						<div class='event-description'>" . $row['description'] . "</div>
-					</div>
-					<a style='width: fit-content; float:right' id='new-event-btn' class='btn-blue-muted m-2' href='invite.php?event_id=".$row['event_id']."'>Invite</a>
-					<div class='right-event'>";
-						if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
-							if ($_SESSION['logged_in'] != $username) {
-								echo "<div class='my-2 right'>
-						<a href='' class='btn-yes'>Yes</a>
-						<a href='' class='btn-no'>No</a>
-						<a href='' class='btn-maybe'>Maybe</a>
-					</div>
-					<div class='mb-2 right'>
-						<a href='' class='btn-blue-muted-outline btn-invite'>Message Host</a></div>";
+						<div class='left-event'>
+							<h6><a href=event.php?event_id=" . $row['event_id'] . ">" . $row['event_title'] . "</a></h6>
+							<div class='event-description'>" . $row['description'] . "</div>
+						</div>
+						
+						<div class='right-event'>";
+							if (isset($_SESSION['logged_in']) && !empty($_SESSION['logged_in'])) {
+								if ($_SESSION['logged_in'] != $username) {
+									echo "<div class='my-2 right'>
+										<a href='' class='btn-yes'>Yes</a>
+										<a href='' class='btn-no'>No</a>
+										<a href='' class='btn-maybe'>Maybe</a>
+									</div>
+									<div class='mb-2 right'>
+										<a href='' class='btn-blue-muted-outline btn-invite'>Message Host</a></div>";
+								}
+								else {
+									echo "<div class='my-2 right'>
+									<a id='new-event-btn' class='btn-blue-muted btn-invite2' href='invite.php?event_id=".$row['event_id']."'>Invite</a></div>";
+								}
 							}
-						}
 
 
 						echo "
 <<<<<<< HEAD
 =======
 						<div class='right'>
-							<span class='heart-toggle'>
-								<i class='event-icon far fa-heart'></i>
-							</span>
-							<span class='share-event'>
-								<i class='event-icon fas fa-share'></i>
-							</span>
+							
 						</div>
 >>>>>>> 376ee8f166832ec46af546a7de55540c2fe4490a
 					</div>

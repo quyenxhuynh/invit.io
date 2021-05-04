@@ -19,6 +19,7 @@ function login($user, $pass)
         if (password_verify($pass, $row['password'])) {
             $error =  "";
             $_SESSION['logged_in'] = $row['username'];
+            include('var-setup.php');
             header("Location: base.php");
         } else {
             $error = "The username or password do not match";

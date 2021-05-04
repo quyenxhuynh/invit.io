@@ -43,20 +43,11 @@ session_start();
 			<!-- HEADER -->
 			<div class="container">
 				<div class="header">
-<<<<<<< HEAD
-					<h2>'.$result['event_title'].'</h2>
-=======
 					<h2>' . $result['event_title'] . '</h2>
 					<div>
-						<span class="heart-toggle mx-1">
-							<i class="event-icon far fa-heart fa-2x"></i>
-						</span>
-						<span class="share-event mx-1">
-							<i class="event-icon fas fa-share fa-2x"></i>
-						</span>
+						
 		
 					</div>
->>>>>>> 376ee8f166832ec46af546a7de55540c2fe4490a
 		
 				</div>
 		
@@ -64,27 +55,21 @@ session_start();
 				<div class="content">
 					<div class="left rounded-outline">
 						<div class="description">
-<<<<<<< HEAD
-							'.$result['description'].'
-						</div>';
-						if(isset($_SESSION['logged_in'])){
-						if($result['organizer'] == $_SESSION['logged_in']){
-							echo '<a style="float:right" id="new-event-btn" class="btn-blue-muted m-2" href="delete.php?id='.$result['event_id'].'">Delete</a>
-								<a style="float:right" id="new-event-btn" class="btn-blue-muted m-2" href="update-task.php?id='.$result['event_id'].'">Update</a>';
-						}
-					}
-					echo'	
-=======
 							' . $result['description'] . '
-						</div>
-						<a style="float:right" id="new-event-btn" class="btn-blue-muted m-2" href="delete.php?id=' . $result['event_id'] . '">Delete</a>
-						<a style="float:right" id="new-event-btn" class="btn-blue-muted m-2" href="update-task.php?id=' . $result['event_id'] . '">Update</a>
->>>>>>> 376ee8f166832ec46af546a7de55540c2fe4490a
-					</div>
+						</div>';
+
+	if ($result['organizer'] == $_SESSION['logged_in']) {
+		echo '
+							<a style="float:right" id="new-event-btn" class="btn-blue-muted m-2" href="delete.php?id=' . $result['event_id'] . '">Delete</a>
+						<a style="float:right" id="new-event-btn" class="btn-blue-muted m-2" href="update-task.php?id=' . $result['event_id'] . '">Update</a>';
+	}
+
+
+	echo '</div>
 		
 					<div class="right rounded-outline">
 						<div class="row">
-							Organizer: ' . $result['organizer'] . ' <br>
+							Host:  <a href="profile.php?username=' . $result['organizer'] . '">@' . $result['organizer'] . '</a><br>
 							Date: ' . $result['date'] . ' <br>
 							Time ' . $result['time'] . '
 						</div>

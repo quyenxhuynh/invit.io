@@ -17,6 +17,4 @@ if ($stmt->execute()) {
 else {
 	$error = mysqli_error($con);
 }
-
-
 ?>

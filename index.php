@@ -49,10 +49,15 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
             require 'delete-msg.php';
             break;
       case '/ngphp-post.php':
-            require '/ngphp-post.php';
+            require 'ngphp-post.php';
+            break;
+      case '/set_attending.php':
+            require 'set_attending.php';
+            break;
+      case '/invite.php':
+            require 'invite.php';
             break;
    default:
       http_response_code(404);
       exit('Not Found');
-}  
-?>
+}

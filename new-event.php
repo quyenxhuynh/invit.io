@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION['logged_in'])) {
 	header('Location: sign-in.php');
@@ -6,30 +6,26 @@ if (!isset($_SESSION['logged_in'])) {
 
 include_once("./config.php");
 
-if(isset($_POST['submit'])){
-$sql = "INSERT INTO Event (event_id, event_title, description, date, time, location, is_private, organizer)
+if (isset($_POST['submit'])) {
+	$sql = "INSERT INTO Event (event_id, event_title, description, date, time, location, is_private, organizer)
 VALUES
 (?, ?, ?, ?, ?, ?, ?, ?)";
-$stmt = $con->prepare($sql);
-$id = uniqid('', true);
-$event_title = $_COOKIE['event_title'];
-$description = $_COOKIE['description'];
-$date = $_COOKIE['date'];
-$time = $_COOKIE['time'];
-$location = $_COOKIE['location'];
-$is_private = $_COOKIE['is_private'];
-$username = $_SESSION['logged_in'];
-$stmt->bind_param('ssssssis', $id, $event_title, $description, $date, $time, $location, $is_private, $username);
-if ($stmt->execute()) {
-	$error = "";
+	$stmt = $con->prepare($sql);
+	$id = uniqid('', true);
+	$event_title = $_COOKIE['event_title'];
+	$description = $_COOKIE['description'];
+	$date = $_COOKIE['date'];
+	$time = $_COOKIE['time'];
+	$location = $_COOKIE['location'];
+	$is_private = $_COOKIE['is_private'];
+	$username = $_SESSION['logged_in'];
+	$stmt->bind_param('ssssssis', $id, $event_title, $description, $date, $time, $location, $is_private, $username);
+	if ($stmt->execute()) {
+		$error = "";
+	} else {
+		$error = mysqli_error($con);
+	}
 }
-else {
-	$error = mysqli_error($con);
-}
-// mysqli_close($con);
-// $con->close();
-}
-
 ?>
 
 <!doctype html>
@@ -46,10 +42,10 @@ else {
 </head>
 
 <body>
-  <?php include('navbar.php') ?>
+	<?php include('navbar.php') ?>
 
 	<div class="container">
-	<?php if (isset($error) && (!empty($error))) {
+		<?php if (isset($error) && (!empty($error))) {
 			echo '<div class="alert alert-danger" role="alert">' .
 				$error .
 				'</div>';
@@ -120,7 +116,7 @@ else {
 
 			var number_error = 0;
 
-      // check that the name is filled out and less than 100 characters
+			// check that the name is filled out and less than 100 characters
 			var name = document.getElementById("name");
 			document.cookie = "event_title=" + name.value;
 
@@ -135,7 +131,7 @@ else {
 				document.getElementById("err_name").innerHTML = "";
 			}
 
-      // check that the location is entered in the "city, state" format
+			// check that the location is entered in the "city, state" format
 			var loc = document.getElementById("loc");
 			document.cookie = "location=" + loc.value;
 			var loc_split = loc.value.split(',')
@@ -166,18 +162,18 @@ else {
 			} else {
 				document.getElementById("err_description").innerHTML = "";
 			}
-			
 
-      // Check that private or public is checked
+
+			// Check that private or public is checked
 			var public = document.getElementById('public').checked
 			var private = document.getElementById('private').checked
-			
+
 
 			if (!public && !private) {
 				number_error++;
 				document.getElementById("err_public_private").innerHTML = "Please select either public or private for your event";
 			} else {
-				if(public){
+				if (public) {
 					document.cookie = "is_private=" + 0;
 				} else {
 					document.cookie = "is_private=" + 1;
@@ -187,7 +183,7 @@ else {
 
 			if (number_error > 0) {
 				return false;
-			} else{ // Data types and values are acceptable, format looks OK; form can be submitted.
+			} else { // Data types and values are acceptable, format looks OK; form can be submitted.
 				return true;
 			}
 		}

@@ -57,6 +57,9 @@ switch (@parse_url($_SERVER['REQUEST_URI'])['path']) {
       case '/invite.php':
             require 'invite.php';
             break;
+      case '/del-msg':
+            require 'del-msg';
+            break;
    default:
       http_response_code(404);
       exit('Not Found');

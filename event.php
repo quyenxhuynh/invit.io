@@ -45,12 +45,7 @@ session_start();
 				<div class="header">
 					<h2>' . $result['event_title'] . '</h2>
 					<div>
-						<span class="heart-toggle mx-1">
-							<i class="event-icon far fa-heart fa-2x"></i>
-						</span>
-						<span class="share-event mx-1">
-							<i class="event-icon fas fa-share fa-2x"></i>
-						</span>
+						
 		
 					</div>
 		

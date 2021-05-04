@@ -5,8 +5,8 @@
 # invit.io
 
 ### GCP Deployed Site
-Main: https://invitio-21.appspot.com/
-Angular Component: https://invitio-angular.uk.r.appspot.com/
+- Main: https://invitio-21.appspot.com/
+- Angular Component: https://invitio-angular.uk.r.appspot.com/
 
 ### About
 A website to create invitations for you and your friends
